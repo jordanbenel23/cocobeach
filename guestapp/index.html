@@ -45,8 +45,8 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stro
 .hero>*{position:relative}
 .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .badge{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.langs{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
-.lang{min-width:32px;padding:6px 8px;font-size:9.5px;font-weight:600;letter-spacing:.12em;border:1px solid rgba(255,255,255,.25);border-radius:20px;color:rgba(255,255,255,.7);transition:.2s}
+.langs{display:flex;gap:3px;flex-wrap:wrap;justify-content:flex-end}
+.lang{min-width:28px;padding:6px 6px;font-size:9.5px;font-weight:600;letter-spacing:.12em;border:1px solid rgba(255,255,255,.25);border-radius:20px;color:rgba(255,255,255,.7);transition:.2s}
 .lang.on{background:#fff;border-color:#fff;color:var(--ink)}
 .logo-wrap{position:relative;display:flex;justify-content:center;margin:30px 0 22px}
 .logo-wrap::before{content:"";position:absolute;left:50%;top:50%;width:300px;height:260px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(12,27,32,.55),rgba(12,27,32,0));pointer-events:none}
@@ -290,7 +290,7 @@ const NAV = [
   ["arrive","key"],["wifi","wifi"],["rules","rules"],["night","moon"],["amen","palm"],["house","home"],
   ["surf","wave"],["act","compass"],["food","food"],["local","pin"],["ride","car"],["contact","chat"]
 ];
-const LANGS = ["es","en","fr","de","ru"];
+const LANGS = ["es","en","pt","fr","de","nl","ru"];
 
 const T = {
 es:{
@@ -512,6 +512,94 @@ ru:{
   contact:{h:"<em>Контакты</em>",sub:"Мы рядом, пишите 24/7",host:"Ваш хозяин · Coco Beach",
     hostD:"Советы, транспорт, туры или вопросы: отвечаем быстро.",wa:"Написать в WhatsApp",ig:"Мы в Instagram",
     rev:"Понравилось у нас?",revD:"Ваш отзыв очень нам помогает. Спасибо, что выбрали Coco Beach.",map:"Расположение"}
+},
+pt:{
+  hero:{eyebrow:"El Paredón · Guatemala",pre:"Bem-vindos",tag:"Hotel boutique de surf e bem-estar, a um minuto do Pacífico. Tudo o que você precisa para a sua estadia, num só lugar."},
+  strip:{in:"Check-in",out:"Check-out",wifi:"Copiar senha"},
+  nav:{arrive:"Chegada",wifi:"WiFi",rules:"Regras",night:"Noite",amen:"Comodidades",house:"A casa",surf:"Surf",act:"Atividades",food:"Restaurantes",local:"Guia local",ride:"Transporte",contact:"Contato"},
+  arrive:{h:"A sua <em>chegada</em>",sub:"Check-in, estacionamento e como nos encontrar",box:"Horário",ci:"Check-in",co:"Check-out",
+    recep:"Recebemos você pessoalmente",recepD:"A nossa equipe dá as boas-vindas e entrega o seu acesso. Avise-nos pelo WhatsApp a que horas chega e adaptamo-nos ao seu horário.",
+    park:"Estacionamento privado",parkD:"Há espaço para estacionar dentro da propriedade.",
+    how:"Como chegar",howL:["Vá até o Super 24 e siga em direção ao mar: estamos logo atrás.","Na esquina verá um edifício branco com pilares, em frente ao restaurante em forma de nave espacial (Spaceship). Essa casa branca somos nós.","Entrada do estacionamento: rua paralela ao mar.","Entrada do hotel: rua perpendicular ao mar."],
+    map:"Abrir no Google Maps",waArr:"Avisar a hora de chegada",waMsg:"Olá, sou hóspede do Coco Beach. Chego no dia ___ por volta das ___.",
+    out:"Check-out até às 11:00",outL:["Desligue o ar-condicionado e as luzes.","Deixe as toalhas dentro do quarto.","Feche portas e janelas.","Entregue a chave e o cartão de acesso à nossa equipe."]},
+  wifi:{h:"<em>WiFi</em>",sub:"Conexão em toda a propriedade",net:"Rede",pass:"Senha",copy:"Copiar",ok:"Copiado",steps:["Abra as configurações de WiFi do celular.","Escolha a rede «Cocobeach 2.0».","Cole a senha e conecte-se."]},
+  rules:{h:"Regras da <em>casa</em>",sub:"Para que todos aproveitem a tranquilidade",
+    L:["Apenas adultos: maiores de 18 anos, não se aceitam crianças.","Não se aceitam animais de estimação.","Não são permitidas visitas não registradas.","Somos um hotel boutique wellness: proibido fumar em interiores, apenas em áreas ao ar livre.","Não comer dentro dos quartos.","Não é permitida comida nem vidro na piscina.","Tome uma ducha antes de entrar na piscina.","Não são permitidas armas na propriedade.","Não são permitidas festas nem eventos.","Qualquer objeto quebrado, e chaves ou cartões perdidos, serão cobrados."],
+    thanks:"Obrigado por nos ajudar a cuidar deste cantinho de El Paredón."},
+  night:{h:"À <em>noite</em>",sub:"Horários, acesso e descanso",
+    hours:"Áreas comuns das 9:00 às 21:00",hoursD:"Piscina, bilhar, sala de estar e áreas comuns estão abertas das 9 da manhã às 9 da noite.",
+    nfc:"Acesso com cartão NFC",nfcD:"Pode entrar na propriedade a qualquer hora com o seu cartão. Leve-o sempre consigo.",
+    quiet:"Silêncio para o descanso",quietD:"Ao voltar à noite, faça-o em silêncio: outros hóspedes estão descansando. Volume moderado a partir das 22:00.",
+    cam:"Segurança 24 h",camD:"Há câmeras apenas nas áreas comuns exteriores. Nunca dentro dos quartos nem dos banheiros: a sua privacidade está garantida."},
+  amen:{h:"<em>Comodidades</em>",sub:"Tudo incluído na sua estadia",note:"Piscina, bilhar e áreas comuns: das 9:00 às 21:00.",
+    L:{pool:"Piscina",billiard:"Mesa de bilhar",sofa:"Sala de estar",hammock:"Redes",chair:"Cadeiras de praia",shower:"Ducha exterior",drop:"Água potável",laundry:"Lavanderia",snow:"Ar-condicionado",wifi:"WiFi",parking:"Estacionamento privado"}},
+  house:{h:"Como usar <em>a casa</em>",sub:"Pequenos detalhes que fazem a diferença",
+    L:[["snow","Ar-condicionado","Cada quarto tem o seu ar-condicionado com controle remoto. Mantenha portas e janelas fechadas para que refresque mais rápido. Desligue-o ao sair."],["bulb","Luzes","Por favor, apague as luzes quando sair do quarto."],["drop","Água potável","Em cada andar há água potável para se servir quando quiser."],["towel","Toalhas","As toalhas do quarto não podem sair da propriedade. Para a praia, peça toalhas de praia (conforme disponibilidade)."],["shower","Ducha exterior","Tire a areia antes de entrar na piscina ou no quarto."],["billiard","Mesa de bilhar","Não coloque nada sobre a mesa se não for para jogar."],["laundry","Lavanderia","Escreva-nos pelo WhatsApp se precisar lavar roupa."]]},
+  surf:{h:"Hora do <em>surf</em>",sub:"Ondas do Pacífico a um minuto",
+    intro:"Não damos aulas de surf diretamente, mas El Paredón tem escolas e aluguel de pranchas a poucos passos. Em infoelparedon.com encontra todas as opções com horários e preços.",
+    btn:"Escolas e aluguel de pranchas",tips:"Dicas do mar",
+    L:["As manhãs costumam ter o mar mais limpo e menos vento.","O Pacífico aqui tem correntes fortes: se não tiver experiência, surfe com instrutor.","A areia vulcânica queima ao meio-dia: use sandálias.","Protetor solar sempre: o sol é mais forte entre as 11:00 e as 15:00.","Tem cadeiras de praia à sua disposição."]},
+  act:{h:"<em>Atividades</em>",sub:"O melhor de El Paredón e arredores",
+    L:[["tree","Manguezais de Sipacate","Passeio de barco pelos canais do Parque Nacional Sipacate-Naranjo."],["turtle","Soltura de tartarugas","Ajude a soltar tartarugas bebês no mar (na temporada)."],["whale","Observação de baleias","Saídas de barco para ver baleias-jubarte (na temporada)."],["fish","Pesca","Pesca esportiva ou com pescadores locais."],["kayak","Caiaque","Reme pelos manguezais ao nascer ou ao pôr do sol."],["horse","Passeio a cavalo","Cavalgada pela praia ao pôr do sol."],["mountain","Vulcões e Antigua","Excursões a Antigua Guatemala e aos seus vulcões, a cerca de 2 horas."]],
+    btn:"Ver passeios e reservar",note:"Encontra horários, preços e contatos de todas estas atividades em infoelparedon.com."},
+  food:{h:"Onde <em>comer</em>",sub:"Os nossos favoritos: conhecemos os donos",intro:"Lugares de confiança, a poucos minutos a pé. Diga que vem do Coco Beach.",
+    tags:{peru:"Peruana",port:"Portuguesa",kitchen:"Cozinha",ceviche:"Ceviches",seafood:"Frutos do mar",local:"Cozinha local",bar:"Bar",cafe:"Café",fav:"Favorito local",pizza:"Pizza"}},
+  local:{h:"Guia <em>local</em>",sub:"Serviços e telefones úteis",serv:"Serviços na vila",
+    L:[["cash","Caixa eletrônico","Há caixa eletrônico na vila, mas nem sempre tem dinheiro."],["cash","Traga dinheiro","Muitos lugares só aceitam quetzales em dinheiro."],["card","Cartão","Alguns restaurantes e lojas aceitam cartão."],["pill","Farmácia","Há farmácia na vila."]],
+    shops:"Lojas",super:"Super 24",torre:"La Torre Express",shopD:"Supermercado",
+    sos:"Emergências",police:"Polícia",amb:"Ambulância",doctor:"Médico de urgência",tourist:"Assistência ao turista",call:"Ligar"},
+  ride:{h:"<em>Transporte</em>",sub:"Chegue e desloque-se sem complicações",
+    yoan:"Yoan · Motorista privado",yoanD:"O nosso motorista de confiança. Transporte privado por todo o país e turismo bilíngue em francês e espanhol. Reserve com antecedência pelo WhatsApp.",
+    wa:"WhatsApp",ig:"Instagram e Facebook",msg:"Olá Yoan, sou hóspede do Coco Beach. Preciso de transporte de ___ até ___ no dia ___.",
+    sh:"Shuttle partilhado",shD:"É a opção mais econômica a partir de Antigua (cerca de 2 horas). Escreva-nos e ajudamos a reservar.",shBtn:"Pedir ajuda com o shuttle",shMsg:"Olá, podem ajudar-me a reservar um shuttle partilhado até o Coco Beach?"},
+  contact:{h:"<em>Contato</em>",sub:"Estamos por perto, escreva-nos 24/7",host:"O seu anfitrião · Coco Beach",
+    hostD:"Recomendações, transporte, passeios ou qualquer dúvida: respondemos rápido.",wa:"Escrever pelo WhatsApp",ig:"Siga-nos no Instagram",
+    rev:"Gostou da sua estadia?",revD:"A sua avaliação ajuda-nos muito. Obrigado por escolher o Coco Beach.",map:"Localização"}
+},
+nl:{
+  hero:{eyebrow:"El Paredón · Guatemala",pre:"Welkom",tag:"Boutique surf- en wellnesshotel, op één minuut van de Stille Oceaan. Alles wat je nodig hebt voor je verblijf, op één plek."},
+  strip:{in:"Inchecken",out:"Uitchecken",wifi:"Wachtwoord kopiëren"},
+  nav:{arrive:"Aankomst",wifi:"WiFi",rules:"Huisregels",night:"Nacht",amen:"Voorzieningen",house:"Het huis",surf:"Surf",act:"Activiteiten",food:"Restaurants",local:"Lokale gids",ride:"Vervoer",contact:"Contact"},
+  arrive:{h:"Je <em>aankomst</em>",sub:"Inchecken, parkeren en hoe je ons vindt",box:"Tijden",ci:"Inchecken",co:"Uitchecken",
+    recep:"We verwelkomen je persoonlijk",recepD:"Ons team heet je welkom en geeft je de toegang. Laat ons via WhatsApp weten hoe laat je aankomt, dan passen we ons aan.",
+    park:"Privéparkeerplaats",parkD:"Er is parkeerruimte op het terrein.",
+    how:"Hoe kom je hier",howL:["Ga naar de Super 24 en loop door richting zee: we zitten er direct achter.","Op de hoek zie je een wit gebouw met pilaren, tegenover het restaurant in de vorm van een ruimteschip (Spaceship). Dat witte huis zijn wij.","Ingang parkeerplaats: straat parallel aan de zee.","Ingang hotel: straat loodrecht op de zee."],
+    map:"Openen in Google Maps",waArr:"Mijn aankomsttijd doorgeven",waMsg:"Hallo, ik ben gast bij Coco Beach. Ik kom aan op ___ rond ___ uur.",
+    out:"Uitchecken vóór 11:00",outL:["Zet de airco en de lichten uit.","Laat de handdoeken in de kamer.","Sluit deuren en ramen.","Geef de sleutel en toegangskaart terug aan ons team."]},
+  wifi:{h:"<em>WiFi</em>",sub:"Verbinding op het hele terrein",net:"Netwerk",pass:"Wachtwoord",copy:"Kopiëren",ok:"Gekopieerd",steps:["Open de WiFi-instellingen van je telefoon.","Kies het netwerk “Cocobeach 2.0”.","Plak het wachtwoord en maak verbinding."]},
+  rules:{h:"<em>Huisregels</em>",sub:"Zodat iedereen van de rust kan genieten",
+    L:["Alleen volwassenen: 18+, geen kinderen.","Geen huisdieren.","Geen niet-geregistreerde bezoekers.","We zijn een boutique wellnesshotel: binnen niet roken, alleen in buitenruimtes.","Niet eten in de kamers.","Geen eten of glas bij het zwembad.","Douche voordat je het zwembad in gaat.","Geen wapens op het terrein.","Geen feesten of evenementen.","Kapotte spullen en verloren sleutels of kaarten worden in rekening gebracht."],
+    thanks:"Bedankt dat je ons helpt dit plekje van El Paredón mooi te houden."},
+  night:{h:"'s <em>Nachts</em>",sub:"Tijden, toegang en rust",
+    hours:"Gemeenschappelijke ruimtes 9:00 – 21:00",hoursD:"Zwembad, pooltafel, lounge en gemeenschappelijke ruimtes zijn open van 9 uur 's ochtends tot 9 uur 's avonds.",
+    nfc:"Toegang met NFC-kaart",nfcD:"Met je kaart kun je op elk moment het terrein op. Houd hem altijd bij je.",
+    quiet:"Stilte voor ieders rust",quietD:"Kom je 's nachts terug, doe het dan rustig aan: andere gasten slapen. Gematigd volume na 22:00.",
+    cam:"24 uur beveiliging",camD:"Er hangen alleen camera's in de gemeenschappelijke buitenruimtes. Nooit in kamers of badkamers: je privacy is gegarandeerd."},
+  amen:{h:"<em>Voorzieningen</em>",sub:"Alles inbegrepen bij je verblijf",note:"Zwembad, pooltafel en gemeenschappelijke ruimtes: 9:00 – 21:00.",
+    L:{pool:"Zwembad",billiard:"Pooltafel",sofa:"Lounge",hammock:"Hangmatten",chair:"Strandstoelen",shower:"Buitendouche",drop:"Drinkwater",laundry:"Wasservice",snow:"Airco",wifi:"WiFi",parking:"Privéparkeerplaats"}},
+  house:{h:"Gebruik van <em>het huis</em>",sub:"Kleine details die het verschil maken",
+    L:[["snow","Airco","Elke kamer heeft een eigen airco met afstandsbediening. Houd deuren en ramen dicht zodat het sneller koelt. Zet hem uit als je weggaat."],["bulb","Lichten","Doe alsjeblieft de lichten uit als je de kamer verlaat."],["drop","Drinkwater","Op elke verdieping staat drinkwater, pak gerust wanneer je wilt."],["towel","Handdoeken","Kamerhanddoeken mogen het terrein niet verlaten. Vraag voor het strand om strandlakens (zolang de voorraad strekt)."],["shower","Buitendouche","Spoel het zand af voordat je het zwembad of je kamer in gaat."],["billiard","Pooltafel","Leg niets op de tafel als je niet speelt."],["laundry","Wasservice","Stuur ons een WhatsApp als je was wilt laten doen."]]},
+  surf:{h:"Tijd om te <em>surfen</em>",sub:"Golven van de Stille Oceaan op één minuut",
+    intro:"We geven zelf geen surfles, maar El Paredón heeft surfscholen en boardverhuur op een paar stappen. Op infoelparedon.com vind je alle opties met tijden en prijzen.",
+    btn:"Surfscholen en boardverhuur",tips:"Tips voor de zee",
+    L:["'s Ochtends is de zee meestal schoner en is er minder wind.","De Stille Oceaan heeft hier sterke stromingen: surf met een instructeur als je weinig ervaring hebt.","Het vulkanische zand wordt rond het middaguur erg heet: draag slippers.","Altijd zonnebrand: de zon is het sterkst tussen 11:00 en 15:00.","Er staan strandstoelen voor je klaar."]},
+  act:{h:"<em>Activiteiten</em>",sub:"Het beste van El Paredón en omgeving",
+    L:[["tree","Mangroven van Sipacate","Boottocht door de kanalen van Nationaal Park Sipacate-Naranjo."],["turtle","Schildpadden vrijlaten","Help babyschildpadden de zee in (in het seizoen)."],["whale","Walvissen spotten","Boottochten om bultruggen te zien (in het seizoen)."],["fish","Vissen","Sportvissen of vissen met lokale vissers."],["kayak","Kajak","Peddel door de mangroven bij zonsopgang of zonsondergang."],["horse","Paardrijden","Rijd bij zonsondergang over het strand."],["mountain","Vulkanen en Antigua","Uitstapjes naar Antigua Guatemala en de vulkanen, op zo'n 2 uur rijden."]],
+    btn:"Tours bekijken en boeken",note:"Tijden, prijzen en contacten van al deze activiteiten vind je op infoelparedon.com."},
+  food:{h:"Waar te <em>eten</em>",sub:"Onze favorieten: we kennen de eigenaren",intro:"Vertrouwde adresjes op een paar minuten lopen. Zeg dat je bij Coco Beach verblijft.",
+    tags:{peru:"Peruaans",port:"Portugees",kitchen:"Keuken",ceviche:"Ceviche",seafood:"Zeevruchten",local:"Lokale keuken",bar:"Bar",cafe:"Café",fav:"Lokale favoriet",pizza:"Pizza"}},
+  local:{h:"Lokale <em>gids</em>",sub:"Diensten en handige nummers",serv:"Diensten in het dorp",
+    L:[["cash","Geldautomaat","Er is een geldautomaat in het dorp, maar die heeft niet altijd geld."],["cash","Neem contant geld mee","Veel plekken accepteren alleen contante quetzales."],["card","Pinpas","Sommige restaurants en winkels accepteren kaarten."],["pill","Apotheek","Er is een apotheek in het dorp."]],
+    shops:"Winkels",super:"Super 24",torre:"La Torre Express",shopD:"Supermarkt",
+    sos:"Noodgevallen",police:"Politie",amb:"Ambulance",doctor:"Spoedarts",tourist:"Toeristenhulp",call:"Bellen"},
+  ride:{h:"<em>Vervoer</em>",sub:"Zorgeloos aankomen en rondreizen",
+    yoan:"Yoan · Privéchauffeur",yoanD:"Onze vertrouwde chauffeur. Privévervoer door het hele land en tweetalige tours in het Frans en Spaans. Boek vooraf via WhatsApp.",
+    wa:"WhatsApp",ig:"Instagram en Facebook",msg:"Hallo Yoan, ik ben gast bij Coco Beach. Ik heb vervoer nodig van ___ naar ___ op ___.",
+    sh:"Gedeelde shuttle",shD:"De voordeligste optie vanuit Antigua (ongeveer 2 uur). Stuur ons een bericht en we helpen je met boeken.",shBtn:"Hulp vragen met de shuttle",shMsg:"Hallo, kunnen jullie me helpen een gedeelde shuttle naar Coco Beach te boeken?"},
+  contact:{h:"<em>Contact</em>",sub:"We zijn dichtbij, stuur ons 24/7 een bericht",host:"Je gastheer · Coco Beach",
+    hostD:"Tips, vervoer, tours of andere vragen: we reageren snel.",wa:"Stuur een WhatsApp",ig:"Volg ons op Instagram",
+    rev:"Genoten van je verblijf?",revD:"Je review helpt ons enorm. Bedankt dat je voor Coco Beach hebt gekozen.",map:"Locatie"}
 }
 };
 

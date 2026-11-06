@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coco Beach · Guest App</title>
+<meta name="description" content="Guía para huéspedes de Coco Beach, hotel boutique surf en El Paredón, Guatemala.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0c1b20">
+<link rel="apple-touch-icon" href="../img/logo-mark-dark.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230c1b20'/%3E%3Cpath d='M31 52c1-9 1-17-1-25' stroke='%23f3ebe0' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M30 27c-6-6-14-5-18 0 6-2 11-1 18 0zm0 0c5-7 13-8 19-4-7 0-12 1-19 4zm0 0c-2-7-8-11-14-10 6 2 9 5 14 10zm0 0c4-5 10-7 16-5-6 1-10 2-16 5z' fill='%233fd1c4'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --ink:#0c1b20;--ink2:#16303a;--sea:#2fc7c0;--sea-deep:#0f5560;--coral:#ff6f4f;--palm:#2e5a43;
+  --sand:#f4ece1;--sand2:#ebe0d1;--paper:#fbf7f1;--text:#1d2a2e;--muted:#6b7a7d;--line:rgba(12,27,32,.09);
+  --gold:#c9a46a;--wa:#25d366;
+  --serif:"Fraunces",Georgia,serif;--sans:"Manrope",system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{background:var(--sand)}
+body{font-family:var(--sans);color:var(--text);background:var(--sand);max-width:480px;margin:0 auto;min-height:100vh;position:relative;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media (min-width:520px){body{box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(12,27,32,.12)}}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* hero */
+.hero{position:relative;padding:22px 22px 70px;color:#fff;background:var(--ink) url("../img/ext-sunset.webp") center 40%/cover no-repeat;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,27,32,.55) 0%,rgba(12,27,32,.35) 40%,rgba(12,27,32,.88) 100%)}
+.hero>*{position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.badge{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.langs{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.lang{min-width:32px;padding:6px 8px;font-size:9.5px;font-weight:600;letter-spacing:.12em;border:1px solid rgba(255,255,255,.25);border-radius:20px;color:rgba(255,255,255,.7);transition:.2s}
+.lang.on{background:#fff;border-color:#fff;color:var(--ink)}
+.logo-wrap{position:relative;display:flex;justify-content:center;margin:30px 0 22px}
+.logo-wrap::before{content:"";position:absolute;left:50%;top:50%;width:300px;height:260px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(12,27,32,.55),rgba(12,27,32,0));pointer-events:none}
+.logo{position:relative;display:block;width:220px;max-width:62vw;height:auto;transform:translateX(8.5%);filter:drop-shadow(0 2px 14px rgba(0,0,0,.35))}
+.eyebrow{text-align:center;font-size:9.5px;letter-spacing:.4em;text-transform:uppercase;color:var(--sea);margin-bottom:10px}
+.title{text-align:center;font-family:var(--serif);font-weight:300;font-size:40px;line-height:1.08}
+.title em{font-style:italic;color:#ffd9c9}
+.tagline{text-align:center;margin-top:12px;font-size:12.5px;color:rgba(255,255,255,.72);line-height:1.6}
+.wave{position:absolute;left:0;right:0;bottom:-3px;width:100%;height:49px;display:block}
+
+/* quick strip */
+.strip{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:8px;margin:-34px 16px 0;position:relative;z-index:2}
+.chip{background:var(--paper);border-radius:16px;padding:12px 12px 11px;box-shadow:0 6px 24px rgba(12,27,32,.08)}
+.chip small{display:block;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.chip b{font-family:var(--serif);font-weight:400;font-size:20px;color:var(--ink)}
+.chip.wifi{background:var(--ink);color:#fff;text-align:left}
+.chip.wifi small{color:var(--sea)}
+.chip.wifi b{color:#fff;font-size:12px;line-height:1.25;font-family:var(--sans);font-weight:600;display:flex;align-items:center;gap:6px}
+.chip.wifi svg.i{width:15px;height:15px}
+
+/* nav */
+.nav{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:22px 16px 8px}
+.tile{background:var(--paper);border-radius:18px;padding:15px 6px 12px;display:flex;flex-direction:column;align-items:center;gap:8px;border:1px solid transparent;transition:transform .2s var(--ease),background .2s,box-shadow .2s;box-shadow:0 2px 10px rgba(12,27,32,.04)}
+.tile:active{transform:scale(.96)}
+.tile .ic{width:42px;height:42px;border-radius:14px;background:var(--sand);display:grid;place-items:center;color:var(--sea-deep);transition:.2s}
+.tile span{font-size:10.5px;font-weight:600;letter-spacing:.02em;color:var(--muted);text-align:center;line-height:1.25}
+.tile.on{background:var(--ink);box-shadow:0 8px 24px rgba(12,27,32,.22)}
+.tile.on .ic{background:rgba(47,199,192,.14);color:var(--sea)}
+.tile.on span{color:#fff}
+
+/* sections */
+main{padding:14px 16px 120px}
+.sec{display:none;animation:up .35s var(--ease)}
+.sec.on{display:block}
+@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.h{font-family:var(--serif);font-weight:300;font-size:30px;line-height:1.1;color:var(--ink);margin:8px 4px 4px}
+.h em{font-style:italic;color:var(--sea-deep)}
+.sub{font-size:12px;color:var(--muted);letter-spacing:.04em;margin:0 4px 18px}
+.card{background:var(--paper);border-radius:20px;padding:18px;margin-bottom:10px;box-shadow:0 2px 14px rgba(12,27,32,.05)}
+.lbl{font-size:9px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.p{font-size:13.5px;line-height:1.65;color:var(--text)}
+.p+.p{margin-top:8px}
+.dark{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.dark::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sea),var(--coral))}
+.dark .lbl{color:var(--sea)}
+.dark .p{color:rgba(255,255,255,.78)}
+.boxes{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:13px}
+.box small{display:block;font-size:8.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px}
+.box b{font-family:var(--serif);font-weight:300;font-size:26px}
+.row{display:flex;gap:13px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0;padding-bottom:0}
+.row:first-child{padding-top:0}
+.row .ib{width:38px;height:38px;border-radius:12px;background:var(--sand);display:grid;place-items:center;color:var(--sea-deep);flex-shrink:0}
+.row .ib svg.i{width:19px;height:19px}
+.row .t{flex:1;min-width:0}
+.row .t b{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:2px}
+.row .t p{font-size:12.5px;line-height:1.55;color:var(--muted)}
+.dark .row{border-color:rgba(255,255,255,.08)}
+.dark .row .ib{background:rgba(255,255,255,.07);color:var(--sea)}
+.dark .row .t b{color:#fff}
+.dark .row .t p{color:rgba(255,255,255,.6)}
+ol.steps{list-style:none;counter-reset:s}
+ol.steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;font-size:13.5px;line-height:1.55;padding:8px 0}
+ol.steps li::before{content:counter(s);width:24px;height:24px;border-radius:50%;background:var(--sand);color:var(--sea-deep);font-size:11px;font-weight:600;display:grid;place-items:center;flex-shrink:0;margin-top:-1px}
+ul.dots{list-style:none}
+ul.dots li{position:relative;padding:8px 0 8px 22px;font-size:13.5px;line-height:1.55;border-bottom:1px solid var(--line)}
+ul.dots li:last-child{border-bottom:0}
+ul.dots li::before{content:"";position:absolute;left:4px;top:15px;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--sea)}
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px 18px;border-radius:16px;font-size:13px;font-weight:600;letter-spacing:.03em;background:var(--ink);color:#fff;margin-top:10px;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn.sea{background:var(--sea-deep)}
+.btn.wa{background:var(--wa);color:#073b1c}
+.btn.light{background:var(--sand);color:var(--ink)}
+.btn.coral{background:var(--coral);color:#fff}
+.btn svg.i{width:18px;height:18px}
+.btns2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btns2 .btn{margin-top:8px}
+.wifi-box{display:flex;align-items:center;justify-content:space-between;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:13px 14px;margin-bottom:8px}
+.wifi-box small{display:block;font-size:8.5px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:3px}
+.wifi-box b{font-size:16px;font-weight:600;word-break:break-all}
+.copy{padding:9px 13px;border-radius:12px;background:var(--sea);color:var(--ink);font-size:11px;font-weight:600;white-space:nowrap}
+.copy.ok{background:#fff}
+.list a{display:flex;align-items:center;gap:13px;padding:12px 0;border-bottom:1px solid var(--line)}
+.list a:last-child{border-bottom:0;padding-bottom:0}
+.list a:first-child{padding-top:0}
+.list .ib{width:38px;height:38px;border-radius:12px;background:var(--sand);display:grid;place-items:center;color:var(--sea-deep);flex-shrink:0}
+.list .ib svg.i{width:19px;height:19px}
+.list .t{flex:1;min-width:0}
+.list .t b{display:block;font-size:14px;font-weight:600;color:var(--ink)}
+.list .t small{font-size:11.5px;color:var(--muted)}
+.list .go{color:var(--muted)}
+.list .go svg.i{width:16px;height:16px}
+.tag{display:inline-block;font-size:8.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);margin-left:6px;vertical-align:2px}
+.amen{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.am{background:var(--paper);border-radius:16px;padding:14px;display:flex;gap:10px;align-items:center;font-size:12.5px;font-weight:500;color:var(--ink);box-shadow:0 2px 10px rgba(12,27,32,.04)}
+.am svg.i{color:var(--sea-deep);width:19px;height:19px}
+.note{display:flex;gap:10px;align-items:flex-start;background:rgba(47,199,192,.1);border-radius:14px;padding:12px 14px;font-size:12.5px;line-height:1.55;color:var(--sea-deep);margin-top:10px}
+.note svg.i{width:18px;height:18px;margin-top:1px}
+.note.warn{background:rgba(255,111,79,.1);color:#b4472e}
+.photo{border-radius:20px;overflow:hidden;margin-bottom:10px;aspect-ratio:16/9;background:var(--sand2)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.host{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.av{width:54px;height:54px;border-radius:50%;background:var(--sand);display:grid;place-items:center;overflow:hidden}
+.av img{width:42px}
+.host b{font-family:var(--serif);font-weight:400;font-size:21px;color:var(--ink);display:block}
+.host small{font-size:11.5px;color:var(--muted)}
+.dark .host b{color:#fff}
+.stars{display:flex;gap:4px;justify-content:center;color:var(--gold);margin:6px 0 10px}
+.stars svg.i{width:20px;height:20px;fill:currentColor}
+.center{text-align:center}
+footer{text-align:center;padding:10px 20px 30px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+footer img{width:64px;opacity:.75;display:block;margin:0 auto 10px}
+.fab{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));right:max(18px,calc(50vw - 222px));width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 10px 30px rgba(12,27,32,.28);z-index:10}
+.fab svg{width:28px;height:28px;fill:#fff}
+@media (max-width:360px){.title{font-size:31px}.chip b{font-size:17px}.tile span{font-size:9.5px}}
+@media (prefers-reduced-motion:reduce){.sec{animation:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="top">
+    <span class="badge">Guest App</span>
+    <div class="langs" id="langs"></div>
+  </div>
+  <div class="logo-wrap"><img class="logo" src="../img/logo-full-light.png" alt="Coco Beach El Paredón" width="342" height="287"></div>
+  <p class="eyebrow" data-t="hero.eyebrow"></p>
+  <h1 class="title"><em data-t="hero.pre"></em></h1>
+  <p class="tagline" data-t="hero.tag"></p>
+  <svg class="wave" viewBox="0 0 480 46" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 C60 6 120 6 180 22 S300 42 360 26 S440 8 480 18 V46 H0Z" fill="#f4ece1"/><path d="M0 30 C70 14 130 16 190 30 S310 46 370 32 S445 16 480 24" fill="none" stroke="rgba(47,199,192,.5)" stroke-width="1.2"/></svg>
+</header>
+
+<div class="strip">
+  <div class="chip"><small data-t="strip.in"></small><b>15:00</b></div>
+  <div class="chip"><small data-t="strip.out"></small><b>11:00</b></div>
+  <button class="chip wifi" id="wifiChip" type="button"><small>WiFi</small><b><svg class="i"><use href="#i-copy"/></svg><span data-t="strip.wifi"></span></b></button>
+</div>
+
+<nav class="nav" id="nav"></nav>
+<main id="main"></main>
+
+<footer>
+  <img src="../img/logo-mark-dark.png" alt="" width="182" height="215">
+  Coco Beach · El Paredón · Guatemala
+</footer>
+
+<a class="fab" href="https://wa.me/50239995950" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.06c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.27.54-.34.72-.34l.52.01c.17 0 .39-.06.6.46.23.55.77 1.89.84 2.03.07.14.11.3.02.48-.09.18-.14.3-.27.45-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.7 1.16 1.51 1.88 1.04.93 1.91 1.21 2.18 1.35.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.59.75 1.86.89.27.14.45.2.52.32.07.11.07.66-.17 1.34Z"/></svg></a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M10.8 12.2 20 3M17 6l2.5 2.5M15 8l2 2"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.4a10.5 10.5 0 0 1 14 0M8.5 16a5.5 5.5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-rules" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/><path d="M17 3v3M15.5 4.5h3"/></symbol>
+  <symbol id="i-palm" viewBox="0 0 24 24"><path d="M12 21c.6-4 .6-8-.6-11.5"/><path d="M11.4 9.5C9 6.8 5.5 6.6 3 8.6c3-.6 5.5-.3 8.4.9ZM11.4 9.5c2-3 5.6-3.8 8.6-2.2-3.2 0-5.8.6-8.6 2.2ZM11.4 9.5c-.8-3-3.4-5-6.2-4.6 2.6.9 4.4 2.4 6.2 4.6ZM11.4 9.5c1.8-2.4 4.4-3.4 7-2.8"/><path d="M6 21h12"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 16c2 0 2.5-1.5 5-1.5S9.5 16 12 16s2.5-1.5 5-1.5 3 1.5 5 1.5"/><path d="M2 20c2 0 2.5-1.5 5-1.5S9.5 20 12 20s2.5-1.5 5-1.5 3 1.5 5 1.5"/><path d="M5 12c0-4.5 3.5-8 8-8 2.5 0 4.5 1.2 5.5 3-2.5-.8-5.5.3-6.3 3.2-.4 1.4.2 2.8 1.3 3.8"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24"><path d="M7 3v8M4.5 3v5a2.5 2.5 0 0 0 5 0V3M7 11v10"/><path d="M17 21V3c-2.2 1.2-3.5 3.6-3.5 7 0 1.6.8 2.5 2 2.5H17"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16V11l2-5h10l2 5v5"/><path d="M3 16h18v3H3zM5 11h14"/><circle cx="7.5" cy="13.5" r=".7" fill="currentColor"/><circle cx="16.5" cy="13.5" r=".7" fill="currentColor"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 18.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H7.5L4 18.5Z"/><path d="M8 9h8M8 12.5h5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></symbol>
+  <symbol id="i-parking" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></symbol>
+  <symbol id="i-nfc" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M13 10a3 3 0 0 1 0 4M15.5 8.5a5.5 5.5 0 0 1 0 7"/><path d="M6 14h3"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8h11l3 3-3 3H4z"/><path d="M8 14v3M5 17h6"/><circle cx="12.5" cy="11" r=".7" fill="currentColor"/></symbol>
+  <symbol id="i-shh" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="m17 9.5 4 5M21 9.5l-4 5"/></symbol>
+  <symbol id="i-pool" viewBox="0 0 24 24"><path d="M2 18c2 0 2.5-1.3 5-1.3s3 1.3 5 1.3 3-1.3 5-1.3 3 1.3 5 1.3"/><path d="M8 15V5a2 2 0 0 1 4 0M16 15V5a2 2 0 0 0-4 0M8 9h8M8 12.5h8"/></symbol>
+  <symbol id="i-billiard" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 13a2 2 0 0 1 4 0v1h10v-1a2 2 0 0 1 4 0v5H3v-5ZM5 18v2M19 18v2"/></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24"><path d="M6 4h12l-6 8-6-8ZM12 12v8M8 20h8"/></symbol>
+  <symbol id="i-hammock" viewBox="0 0 24 24"><path d="M3 5v15M21 5v15M3 8c3 6 15 6 18 0"/></symbol>
+  <symbol id="i-chair" viewBox="0 0 24 24"><path d="M5 20l3-9h8l2 9M6.5 15h11M8 11 6 4"/></symbol>
+  <symbol id="i-shower" viewBox="0 0 24 24"><path d="M5 21V6a3 3 0 0 1 6 0"/><path d="M8 8h6a3 3 0 0 0-6 0ZM9.5 12v1M12.5 12v1M11 15v1M14 15v1M15.5 12v1"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></symbol>
+  <symbol id="i-laundry" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="4.5"/><path d="M8 6.5h1.5"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.5 12 6l2.5-1.5M9.5 19.5 12 18l2.5 1.5"/></symbol>
+  <symbol id="i-towel" viewBox="0 0 24 24"><path d="M6 4h10a2 2 0 0 1 2 2v14H8a2 2 0 0 1-2-2V4Z"/><path d="M6 4a2 2 0 0 0-2 2v3h2M10 15h6"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M8.5 14.5a6 6 0 1 1 7 0c-.8.6-1.5 1.5-1.5 2.5h-4c0-1-.7-1.9-1.5-2.5Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h12l-2 4 2 4H5"/></symbol>
+  <symbol id="i-turtle" viewBox="0 0 24 24"><ellipse cx="11" cy="13" rx="6.5" ry="4.5"/><path d="M17.5 12.5h2a1.5 1.5 0 0 0 0-3c-1 0-1.7.8-2 1.5M6 16.5l-1.5 2M15 16.5l1.5 2M7 9.5 5.5 7.5M14.5 9l1-1.8M8 13h6M11 8.5v9"/></symbol>
+  <symbol id="i-whale" viewBox="0 0 24 24"><path d="M3 13c0 3.5 3 6 8 6 4.5 0 8-2.5 8-7 0-1 .5-2 2-3-2 0-3 .5-3.5 1.5-.5-3-3-5-6.5-5S4 7.5 3 13Z"/><path d="M8 6c-.5-1.5-.5-2.5 0-3.5M8 6c1-1 2-1.5 3-1.5"/></symbol>
+  <symbol id="i-fish" viewBox="0 0 24 24"><path d="M3 12c3-4 8-5.5 12-3.5l4-3v13l-4-3C11 17.5 6 16 3 12Z"/><circle cx="7.5" cy="11.5" r=".7" fill="currentColor"/></symbol>
+  <symbol id="i-kayak" viewBox="0 0 24 24"><path d="M3 16c5 2.5 13 2.5 18 0-5-2.5-13-2.5-18 0Z"/><path d="m6 6 12 14M5 5l2 1-1 1-1-2ZM19 21l-2-1 1-1 1 2Z"/></symbol>
+  <symbol id="i-horse" viewBox="0 0 24 24"><path d="M8 21v-5c-2-1-3-3-3-5 0-4 3-7 7-7l1-1 1 2c2 1 4 3 4 6l1 3h-3l-1-2-2 1v8"/><circle cx="14.5" cy="7.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-mountain" viewBox="0 0 24 24"><path d="M2 20 9 7l4 6 2-3 7 10H2Z"/><path d="M8 4.5c.6-.8 1.4-.8 2 0M13 3c.6-.8 1.4-.8 2 0"/></symbol>
+  <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 21v-6M7 15h10l-3-4h2l-4-7-4 7h2l-3 4Z"/></symbol>
+  <symbol id="i-cash" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9.5v5M18 9.5v5"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></symbol>
+  <symbol id="i-pill" viewBox="0 0 24 24"><rect x="3" y="8.5" width="18" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.6l2-8H6.3"/><circle cx="9" cy="19.5" r="1.3"/><circle cx="17" cy="19.5" r="1.3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1C11 20 4 13 4 5a1 1 0 0 1 1-1Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.5 3 8 7 9.5 4-1.5 7-5 7-9.5V6l-7-3Z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></symbol>
+  <symbol id="i-amb" viewBox="0 0 24 24"><path d="M3 17V8h11v9M14 11h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/><path d="M8.5 10v4M6.5 12h4"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.8v.2"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r=".8" fill="currentColor"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 4 2.5 20h19L12 4Z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.8L4 20Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2L9 9.5Z"/></symbol>
+</svg>
+
+<script>
+const WIFI = { ssid: "Cocobeach 2.0", pass: "Cocobeach2026@" };
+const WA = "50239995950";
+const MAP = "https://maps.app.goo.gl/5KLCpb5JXReoBkAU7";
+const IG = "https://instagram.com/cocobeachgt";
+const INFO = "https://infoelparedon.com";
+/* Cambia estos enlaces por los de tus anuncios cuando los tengas */
+const REVIEW = {
+  google: "https://maps.app.goo.gl/5KLCpb5JXReoBkAU7",
+  airbnb: "https://www.airbnb.com/",
+  booking: "https://www.booking.com/"
+};
+const FOOD = [
+  { n: "Máncora", tag: "peru", url: "https://maps.app.goo.gl/Dyga2ypsZCZygH598" },
+  { n: "Bora", tag: "port", url: "https://maps.app.goo.gl/jbpe6ocDUdAs9oPR" },
+  { n: "Ema Cocina", tag: "kitchen", url: "https://maps.app.goo.gl/5BhMEcLCX9Jyc37C9" },
+  { n: "El Cevichito", tag: "ceviche", url: "https://maps.app.goo.gl/1pVHfjgBmfSjxJ4i8" },
+  { n: "Delicias del Mar", tag: "seafood", url: "https://maps.app.goo.gl/5RZMDyt8bCAouKF76" },
+  { n: "Pez Paredón", tag: "seafood", url: "https://maps.app.goo.gl/KUEMswHto991oCY98" },
+  { n: "Yoli's", tag: "local", url: "https://maps.app.goo.gl/ekPn13KEhigTVfg16" },
+  { n: "Spaceship Bar", tag: "bar", url: "https://maps.app.goo.gl/ggw1zWGUJ2DZb2RD7" },
+  { n: "Cafecito del Mar", tag: "cafe", url: "https://maps.app.goo.gl/HEwZB7CQZgKDc8Nt8" },
+  { n: "Fruiti", tag: "fav", url: "https://maps.app.goo.gl/Z8Q5tk8oTwgaG7n6A" },
+  { n: "Playa 14", tag: "fav", url: "https://maps.app.goo.gl/7pPa7p9RdQgo1ugw8" },
+  { n: "Olivia's Pizza", tag: "pizza", url: "https://www.google.com/maps/search/?api=1&query=Olivia%27s+Pizza+El+Paredon+Guatemala" }
+];
+const SOS = [
+  { k: "police", ic: "shield", tel: "+50230247599", show: "+502 3024 7599" },
+  { k: "amb", ic: "amb", tel: "+50248941332", show: "+502 4894 1332" },
+  { k: "doctor", ic: "plus", tel: "+50253561578", show: "+502 5356 1578" },
+  { k: "tourist", ic: "info", tel: "+50251881819", show: "+502 5188 1819" }
+];
+const NAV = [
+  ["arrive","key"],["wifi","wifi"],["rules","rules"],["night","moon"],["amen","palm"],["house","home"],
+  ["surf","wave"],["act","compass"],["food","food"],["local","pin"],["ride","car"],["contact","chat"]
+];
+const LANGS = ["es","en","fr","de","ru"];
+
+const T = {
+es:{
+  hero:{eyebrow:"El Paredón · Guatemala",pre:"Bienvenidos",tag:"Hotel boutique de surf y bienestar, a un minuto del Pacífico. Todo lo que necesitas para tu estancia, en un solo lugar."},
+  strip:{in:"Check-in",out:"Check-out",wifi:"Copiar clave"},
+  nav:{arrive:"Llegada",wifi:"WiFi",rules:"Normas",night:"Noche",amen:"Amenidades",house:"La casa",surf:"Surf",act:"Actividades",food:"Restaurantes",local:"Guía local",ride:"Transporte",contact:"Contacto"},
+  arrive:{h:"Tu <em>llegada</em>",sub:"Check-in, parking y cómo encontrarnos",box:"Horario",ci:"Check-in",co:"Check-out",
+    recep:"Te recibimos en persona",recepD:"Nuestro personal te da la bienvenida y te entrega el acceso. Avísanos por WhatsApp a qué hora llegas y nos adaptamos a tu horario.",
+    park:"Parking privado",parkD:"Hay espacio para aparcar dentro de la propiedad.",
+    how:"Cómo llegar",howL:["Ve hasta el Super 24 y sigue en dirección al mar: estamos justo detrás.","En la esquina verás un edificio blanco con pilares, frente al restaurante con forma de nave espacial (Spaceship). Esa casa blanca somos nosotros.","Entrada al parking: calle paralela al mar.","Entrada al hotel: calle perpendicular al mar."],
+    map:"Abrir en Google Maps",waArr:"Avisar mi hora de llegada",waMsg:"Hola, soy huésped de Coco Beach. Llego el día ___ aproximadamente a las ___.",
+    out:"Check-out antes de las 11:00",outL:["Apaga el aire acondicionado y las luces.","Deja las toallas dentro de la habitación.","Cierra puertas y ventanas.","Entrega la llave y la tarjeta de acceso a nuestro personal."]},
+  wifi:{h:"<em>WiFi</em>",sub:"Conexión en toda la propiedad",net:"Red",pass:"Contraseña",copy:"Copiar",ok:"Copiado",steps:["Abre los ajustes WiFi de tu móvil.","Elige la red «Cocobeach 2.0».","Pega la contraseña y conéctate."]},
+  rules:{h:"Normas de la <em>casa</em>",sub:"Para que todos disfruten de la calma",
+    L:["Solo adultos: mayores de 18 años, no se admiten niños.","No se admiten mascotas.","No se permiten visitas no registradas.","Somos un hotel boutique wellness: prohibido fumar en interiores, solo en áreas al aire libre.","No comer dentro de las habitaciones.","No se permite comida ni vidrio en la piscina.","Dúchate antes de entrar a la piscina.","No se permiten armas en la propiedad.","No se permiten fiestas ni eventos.","Cualquier objeto roto, y las llaves o tarjetas perdidas, se cobrarán."],
+    thanks:"Gracias por ayudarnos a cuidar este rincón de El Paredón."},
+  night:{h:"Por la <em>noche</em>",sub:"Horarios, acceso y descanso",
+    hours:"Áreas comunes de 9:00 a 21:00",hoursD:"Piscina, billar, sala de estar y zonas comunes están abiertas de 9 de la mañana a 9 de la noche.",
+    nfc:"Acceso con tarjeta NFC",nfcD:"Puedes entrar a la propiedad a cualquier hora con tu tarjeta. Llévala siempre contigo.",
+    quiet:"Silencio para el descanso",quietD:"Al volver de noche, hazlo en silencio: otros huéspedes descansan. Volumen moderado a partir de las 22:00.",
+    cam:"Seguridad 24 h",camD:"Hay cámaras solo en zonas comunes exteriores. Nunca dentro de habitaciones ni baños: tu privacidad está garantizada."},
+  amen:{h:"<em>Amenidades</em>",sub:"Todo incluido en tu estancia",note:"Piscina, billar y zonas comunes: de 9:00 a 21:00.",
+    L:{pool:"Piscina",billiard:"Mesa de billar",sofa:"Sala de estar",glass:"Bar",hammock:"Hamacas",chair:"Sillas de playa",shower:"Ducha exterior",drop:"Agua potable",laundry:"Lavandería",snow:"Aire acondicionado",wifi:"WiFi",parking:"Parking privado"}},
+  house:{h:"Cómo usar <em>la casa</em>",sub:"Pequeños detalles que marcan la diferencia",
+    L:[["snow","Aire acondicionado","Cada habitación tiene su AC con mando. Mantén puertas y ventanas cerradas para que enfríe antes. Apágalo al salir."],["bulb","Luces","Por favor, deja las luces apagadas cuando salgas de la habitación."],["drop","Agua potable","En cada planta hay agua potable para servirte cuando quieras."],["towel","Toallas","Las toallas de la habitación no pueden salir de la propiedad. Para la playa, pide toallas de playa (según disponibilidad)."],["shower","Ducha exterior","Quítate la arena antes de entrar a la piscina o a la habitación."],["billiard","Mesa de billar","No pongas nada sobre la mesa si no es para jugar."],["laundry","Lavandería","Escríbenos por WhatsApp si necesitas lavar ropa."]]},
+  surf:{h:"Hora de <em>surf</em>",sub:"Olas del Pacífico a un minuto",
+    intro:"No damos clases de surf directamente, pero El Paredón tiene escuelas y alquiler de tablas a pocos pasos. En infoelparedon.com encontrarás todas las opciones con horarios y precios.",
+    btn:"Escuelas y alquiler de tablas",tips:"Consejos del mar",
+    L:["Las mañanas suelen tener el mar más limpio y menos viento.","El Pacífico aquí tiene corrientes fuertes: si no tienes experiencia, surfea con instructor.","La arena volcánica quema al mediodía: usa sandalias.","Protector solar siempre: el sol pega fuerte entre las 11:00 y las 15:00.","Tienes sillas de playa a tu disposición."]},
+  act:{h:"<em>Actividades</em>",sub:"Lo mejor de El Paredón y alrededores",
+    L:[["tree","Manglares de Sipacate","Paseo en lancha por los canales del Parque Nacional Sipacate-Naranjo."],["turtle","Liberación de tortugas","Ayuda a liberar tortugas bebé al mar (en temporada)."],["whale","Avistamiento de ballenas","Salidas en barco para ver ballenas jorobadas (en temporada)."],["fish","Pesca","Pesca deportiva o con pescadores locales."],["kayak","Kayak","Rema por los manglares al amanecer o al atardecer."],["horse","Paseo a caballo","Cabalgata por la playa al atardecer."],["mountain","Volcanes y Antigua","Excursiones a Antigua Guatemala y sus volcanes, a unas 2 horas."]],
+    btn:"Ver tours y reservar",note:"Tienes horarios, precios y contactos de todas estas actividades en infoelparedon.com."},
+  food:{h:"Dónde <em>comer</em>",sub:"Nuestros favoritos: conocemos a sus dueños",intro:"Sitios de confianza, a pocos minutos caminando. Dile que vienes de Coco Beach.",
+    tags:{peru:"Peruana",port:"Portuguesa",kitchen:"Cocina",ceviche:"Ceviches",seafood:"Mariscos",local:"Cocina local",bar:"Bar",cafe:"Café",fav:"Favorito local",pizza:"Pizza"}},
+  local:{h:"Guía <em>local</em>",sub:"Servicios y teléfonos útiles",serv:"Servicios en el pueblo",
+    L:[["cash","Cajero automático","Hay cajero en el pueblo, pero no siempre tiene efectivo."],["cash","Trae efectivo","Muchos sitios solo aceptan quetzales en efectivo."],["card","Tarjeta","Algunos restaurantes y tiendas aceptan tarjeta."],["pill","Farmacia","Hay farmacia en el pueblo."]],
+    shops:"Tiendas",super:"Super 24",torre:"La Torre Express",shopD:"Supermercado",
+    sos:"Emergencias",police:"Policía",amb:"Ambulancia",doctor:"Médico urgente",tourist:"Asistencia al turista",call:"Llamar"},
+  ride:{h:"<em>Transporte</em>",sub:"Llega y muévete sin complicaciones",
+    yoan:"Yoan · Chofer privado",yoanD:"Nuestro conductor de confianza. Transporte privado por todo el país y turismo bilingüe en francés y español. Reserva con antelación por WhatsApp.",
+    wa:"WhatsApp",ig:"Instagram y Facebook",msg:"Hola Yoan, soy huésped de Coco Beach. Necesito transporte desde ___ hasta ___ el día ___.",
+    sh:"Shuttle compartido",shD:"Es la opción más económica desde Antigua (unas 2 horas). Escríbenos y te ayudamos a reservarlo.",shBtn:"Pedir ayuda con el shuttle",shMsg:"Hola, ¿me ayudan a reservar un shuttle compartido a Coco Beach?"},
+  contact:{h:"<em>Contacto</em>",sub:"Estamos cerca, escríbenos 24/7",host:"Tu anfitrión · Coco Beach",
+    hostD:"Recomendaciones, transporte, tours o cualquier duda: respondemos rápido.",wa:"Escribir por WhatsApp",ig:"Síguenos en Instagram",
+    rev:"¿Disfrutaste tu estancia?",revD:"Tu reseña nos ayuda muchísimo. Gracias por elegir Coco Beach.",map:"Ubicación"}
+},
+en:{
+  hero:{eyebrow:"El Paredón · Guatemala",pre:"Welcome",tag:"A boutique surf and wellness hotel, one minute from the Pacific. Everything you need for your stay, in one place."},
+  strip:{in:"Check-in",out:"Check-out",wifi:"Copy password"},
+  nav:{arrive:"Arrival",wifi:"WiFi",rules:"House rules",night:"Night",amen:"Amenities",house:"The house",surf:"Surf",act:"Activities",food:"Restaurants",local:"Local guide",ride:"Transport",contact:"Contact"},
+  arrive:{h:"Your <em>arrival</em>",sub:"Check-in, parking and how to find us",box:"Schedule",ci:"Check-in",co:"Check-out",
+    recep:"We welcome you in person",recepD:"Our staff will greet you and hand over your access. Let us know your arrival time on WhatsApp and we'll adapt to your schedule.",
+    park:"Private parking",parkD:"There's parking space inside the property.",
+    how:"How to get here",howL:["Head to the Super 24 and keep going toward the sea: we're right behind it.","On the corner you'll see a white building with pillars, across from the spaceship-shaped restaurant (Spaceship). That white house is us.","Parking entrance: street parallel to the sea.","Hotel entrance: street perpendicular to the sea."],
+    map:"Open in Google Maps",waArr:"Share my arrival time",waMsg:"Hi, I'm a guest at Coco Beach. I arrive on ___ at around ___.",
+    out:"Check-out before 11:00",outL:["Turn off the air conditioning and lights.","Leave the towels inside the room.","Close doors and windows.","Return the key and access card to our staff."]},
+  wifi:{h:"<em>WiFi</em>",sub:"Coverage across the property",net:"Network",pass:"Password",copy:"Copy",ok:"Copied",steps:["Open your phone's WiFi settings.","Choose the “Cocobeach 2.0” network.","Paste the password and connect."]},
+  rules:{h:"House <em>rules</em>",sub:"So everyone can enjoy the calm",
+    L:["Adults only: 18+, no children.","No pets.","No unregistered visitors.","We're a boutique wellness hotel: no smoking indoors, only in open-air areas.","No eating inside the rooms.","No food or glass in the pool.","Shower before getting into the pool.","No weapons on the property.","No parties or events.","Any broken items, and lost keys or cards, will be charged."],
+    thanks:"Thank you for helping us look after this corner of El Paredón."},
+  night:{h:"At <em>night</em>",sub:"Hours, access and rest",
+    hours:"Common areas 9 am – 9 pm",hoursD:"The pool, pool table, lounge and common areas are open from 9 in the morning to 9 at night.",
+    nfc:"NFC card access",nfcD:"You can enter the property at any time with your card. Always keep it with you.",
+    quiet:"Quiet for everyone's rest",quietD:"When you come back at night, please keep it quiet: other guests are resting. Moderate volume after 10 pm.",
+    cam:"24 h security",camD:"There are cameras only in outdoor common areas. Never inside rooms or bathrooms: your privacy is guaranteed."},
+  amen:{h:"<em>Amenities</em>",sub:"All included in your stay",note:"Pool, pool table and common areas: 9 am – 9 pm.",
+    L:{pool:"Pool",billiard:"Pool table",sofa:"Lounge",glass:"Bar",hammock:"Hammocks",chair:"Beach chairs",shower:"Outdoor shower",drop:"Drinking water",laundry:"Laundry",snow:"Air conditioning",wifi:"WiFi",parking:"Private parking"}},
+  house:{h:"Using <em>the house</em>",sub:"Small details that make a difference",
+    L:[["snow","Air conditioning","Each room has its own AC with a remote. Keep doors and windows closed so it cools faster. Turn it off when you leave."],["bulb","Lights","Please switch the lights off when you leave the room."],["drop","Drinking water","There's drinking water on every floor, help yourself anytime."],["towel","Towels","Room towels can't leave the property. For the beach, ask for beach towels (subject to availability)."],["shower","Outdoor shower","Rinse off the sand before using the pool or entering your room."],["billiard","Pool table","Please don't put anything on the table unless you're playing."],["laundry","Laundry","Message us on WhatsApp if you need laundry."]]},
+  surf:{h:"Time to <em>surf</em>",sub:"Pacific waves one minute away",
+    intro:"We don't run surf lessons ourselves, but El Paredón has surf schools and board rentals just steps away. On infoelparedon.com you'll find every option with schedules and prices.",
+    btn:"Surf schools and board rental",tips:"Ocean tips",
+    L:["Mornings usually bring cleaner waves and less wind.","The Pacific here has strong currents: if you're not experienced, surf with an instructor.","Volcanic sand gets very hot at midday: wear sandals.","Always wear sunscreen: the sun is strongest between 11 am and 3 pm.","Beach chairs are available for you."]},
+  act:{h:"<em>Activities</em>",sub:"The best of El Paredón and around",
+    L:[["tree","Sipacate mangroves","Boat ride through the canals of Sipacate-Naranjo National Park."],["turtle","Turtle release","Help release baby turtles into the ocean (in season)."],["whale","Whale watching","Boat trips to see humpback whales (in season)."],["fish","Fishing","Sport fishing or fishing with local fishermen."],["kayak","Kayak","Paddle through the mangroves at sunrise or sunset."],["horse","Horseback riding","Ride along the beach at sunset."],["mountain","Volcanoes and Antigua","Day trips to Antigua Guatemala and its volcanoes, about 2 hours away."]],
+    btn:"See tours and book",note:"You'll find schedules, prices and contacts for all these activities on infoelparedon.com."},
+  food:{h:"Where to <em>eat</em>",sub:"Our favourites: we know the owners",intro:"Trusted spots a few minutes' walk away. Tell them you're staying at Coco Beach.",
+    tags:{peru:"Peruvian",port:"Portuguese",kitchen:"Kitchen",ceviche:"Ceviche",seafood:"Seafood",local:"Local food",bar:"Bar",cafe:"Café",fav:"Local favourite",pizza:"Pizza"}},
+  local:{h:"Local <em>guide</em>",sub:"Services and useful numbers",serv:"Services in town",
+    L:[["cash","ATM","There's an ATM in town, but it doesn't always have cash."],["cash","Bring cash","Many places only accept quetzales in cash."],["card","Cards","Some restaurants and shops accept cards."],["pill","Pharmacy","There's a pharmacy in town."]],
+    shops:"Shops",super:"Super 24",torre:"La Torre Express",shopD:"Supermarket",
+    sos:"Emergencies",police:"Police",amb:"Ambulance",doctor:"Urgent doctor",tourist:"Tourist assistance",call:"Call"},
+  ride:{h:"<em>Transport</em>",sub:"Arrive and get around with ease",
+    yoan:"Yoan · Private driver",yoanD:"Our trusted driver. Private transport across the whole country and bilingual tours in French and Spanish. Book ahead on WhatsApp.",
+    wa:"WhatsApp",ig:"Instagram and Facebook",msg:"Hi Yoan, I'm a guest at Coco Beach. I need a ride from ___ to ___ on ___.",
+    sh:"Shared shuttle",shD:"The most affordable option from Antigua (about 2 hours). Message us and we'll help you book it.",shBtn:"Get help with a shuttle",shMsg:"Hi, could you help me book a shared shuttle to Coco Beach?"},
+  contact:{h:"<em>Contact</em>",sub:"We're close by, message us 24/7",host:"Your host · Coco Beach",
+    hostD:"Tips, transport, tours or any questions: we reply fast.",wa:"Message on WhatsApp",ig:"Follow us on Instagram",
+    rev:"Enjoyed your stay?",revD:"Your review helps us so much. Thank you for choosing Coco Beach.",map:"Location"}
+},
+fr:{
+  hero:{eyebrow:"El Paredón · Guatemala",pre:"Bienvenue",tag:"Un hôtel boutique surf et bien-être, à une minute du Pacifique. Tout ce qu'il vous faut pour votre séjour, au même endroit."},
+  strip:{in:"Arrivée",out:"Départ",wifi:"Copier le code"},
+  nav:{arrive:"Arrivée",wifi:"WiFi",rules:"Règles",night:"La nuit",amen:"Équipements",house:"La maison",surf:"Surf",act:"Activités",food:"Restaurants",local:"Guide local",ride:"Transport",contact:"Contact"},
+  arrive:{h:"Votre <em>arrivée</em>",sub:"Check-in, parking et comment nous trouver",box:"Horaires",ci:"Arrivée",co:"Départ",
+    recep:"Accueil en personne",recepD:"Notre équipe vous accueille et vous remet votre accès. Indiquez-nous votre heure d'arrivée sur WhatsApp et nous nous adaptons.",
+    park:"Parking privé",parkD:"Places de stationnement à l'intérieur de la propriété.",
+    how:"Comment venir",howL:["Allez jusqu'au Super 24 et continuez vers la mer : nous sommes juste derrière.","Au coin, vous verrez un bâtiment blanc à colonnes, face au restaurant en forme de vaisseau spatial (Spaceship). Cette maison blanche, c'est nous.","Entrée du parking : rue parallèle à la mer.","Entrée de l'hôtel : rue perpendiculaire à la mer."],
+    map:"Ouvrir dans Google Maps",waArr:"Indiquer mon heure d'arrivée",waMsg:"Bonjour, je suis client de Coco Beach. J'arrive le ___ vers ___.",
+    out:"Départ avant 11h00",outL:["Éteignez la climatisation et les lumières.","Laissez les serviettes dans la chambre.","Fermez portes et fenêtres.","Rendez la clé et la carte d'accès à notre équipe."]},
+  wifi:{h:"<em>WiFi</em>",sub:"Connexion dans toute la propriété",net:"Réseau",pass:"Mot de passe",copy:"Copier",ok:"Copié",steps:["Ouvrez les réglages WiFi de votre téléphone.","Choisissez le réseau « Cocobeach 2.0 ».","Collez le mot de passe et connectez-vous."]},
+  rules:{h:"Règles de la <em>maison</em>",sub:"Pour que chacun profite du calme",
+    L:["Réservé aux adultes : 18 ans et plus, pas d'enfants.","Animaux non admis.","Pas de visiteurs non enregistrés.","Hôtel boutique bien-être : interdit de fumer à l'intérieur, uniquement en extérieur.","Ne pas manger dans les chambres.","Pas de nourriture ni de verre à la piscine.","Douchez-vous avant d'entrer dans la piscine.","Armes interdites dans la propriété.","Pas de fêtes ni d'événements.","Tout objet cassé, ainsi que les clés ou cartes perdues, sera facturé."],
+    thanks:"Merci de nous aider à préserver ce coin d'El Paredón."},
+  night:{h:"La <em>nuit</em>",sub:"Horaires, accès et repos",
+    hours:"Espaces communs de 9h à 21h",hoursD:"Piscine, billard, salon et espaces communs sont ouverts de 9h du matin à 21h.",
+    nfc:"Accès par carte NFC",nfcD:"Vous pouvez entrer dans la propriété à toute heure avec votre carte. Gardez-la toujours sur vous.",
+    quiet:"Silence pour le repos",quietD:"En rentrant la nuit, restez discrets : d'autres clients se reposent. Volume modéré après 22h.",
+    cam:"Sécurité 24h/24",camD:"Caméras uniquement dans les espaces communs extérieurs. Jamais dans les chambres ni les salles de bain : votre intimité est garantie."},
+  amen:{h:"<em>Équipements</em>",sub:"Tout est inclus dans votre séjour",note:"Piscine, billard et espaces communs : de 9h à 21h.",
+    L:{pool:"Piscine",billiard:"Billard",sofa:"Salon",glass:"Bar",hammock:"Hamacs",chair:"Chaises de plage",shower:"Douche extérieure",drop:"Eau potable",laundry:"Blanchisserie",snow:"Climatisation",wifi:"WiFi",parking:"Parking privé"}},
+  house:{h:"Utiliser <em>la maison</em>",sub:"Petits détails qui font la différence",
+    L:[["snow","Climatisation","Chaque chambre a sa clim avec télécommande. Gardez portes et fenêtres fermées pour qu'elle refroidisse plus vite. Éteignez-la en partant."],["bulb","Lumières","Merci d'éteindre les lumières en quittant la chambre."],["drop","Eau potable","De l'eau potable est disponible à chaque étage, servez-vous."],["towel","Serviettes","Les serviettes de chambre ne quittent pas la propriété. Pour la plage, demandez des serviettes de plage (selon disponibilité)."],["shower","Douche extérieure","Rincez le sable avant la piscine ou la chambre."],["billiard","Billard","Ne posez rien sur la table, sauf pour jouer."],["laundry","Blanchisserie","Écrivez-nous sur WhatsApp pour faire laver du linge."]]},
+  surf:{h:"L'heure du <em>surf</em>",sub:"Les vagues du Pacifique à une minute",
+    intro:"Nous ne donnons pas de cours de surf nous-mêmes, mais El Paredón compte des écoles et des loueurs de planches à deux pas. Sur infoelparedon.com, vous trouverez toutes les options avec horaires et prix.",
+    btn:"Écoles et location de planches",tips:"Conseils océan",
+    L:["Le matin, la mer est généralement plus propre et moins ventée.","Le Pacifique a ici de forts courants : sans expérience, surfez avec un moniteur.","Le sable volcanique brûle à midi : portez des sandales.","Crème solaire toujours : le soleil tape fort entre 11h et 15h.","Des chaises de plage sont à votre disposition."]},
+  act:{h:"<em>Activités</em>",sub:"Le meilleur d'El Paredón et des environs",
+    L:[["tree","Mangroves de Sipacate","Balade en bateau dans les canaux du parc national Sipacate-Naranjo."],["turtle","Lâcher de tortues","Aidez à relâcher des bébés tortues dans l'océan (en saison)."],["whale","Observation des baleines","Sorties en mer pour voir les baleines à bosse (en saison)."],["fish","Pêche","Pêche sportive ou avec des pêcheurs locaux."],["kayak","Kayak","Pagayez dans les mangroves au lever ou au coucher du soleil."],["horse","Balade à cheval","Chevauchée sur la plage au coucher du soleil."],["mountain","Volcans et Antigua","Excursions à Antigua Guatemala et ses volcans, à environ 2 heures."]],
+    btn:"Voir les tours et réserver",note:"Horaires, prix et contacts de toutes ces activités sur infoelparedon.com."},
+  food:{h:"Où <em>manger</em>",sub:"Nos favoris : nous connaissons les propriétaires",intro:"Des adresses de confiance à quelques minutes à pied. Dites que vous venez de Coco Beach.",
+    tags:{peru:"Péruvien",port:"Portugais",kitchen:"Cuisine",ceviche:"Ceviches",seafood:"Fruits de mer",local:"Cuisine locale",bar:"Bar",cafe:"Café",fav:"Favori local",pizza:"Pizza"}},
+  local:{h:"Guide <em>local</em>",sub:"Services et numéros utiles",serv:"Services au village",
+    L:[["cash","Distributeur","Il y a un distributeur au village, mais il n'a pas toujours de billets."],["cash","Prévoyez du liquide","Beaucoup d'endroits n'acceptent que les quetzales en espèces."],["card","Carte bancaire","Certains restaurants et commerces acceptent la carte."],["pill","Pharmacie","Il y a une pharmacie au village."]],
+    shops:"Commerces",super:"Super 24",torre:"La Torre Express",shopD:"Supermarché",
+    sos:"Urgences",police:"Police",amb:"Ambulance",doctor:"Médecin d'urgence",tourist:"Assistance touristique",call:"Appeler"},
+  ride:{h:"<em>Transport</em>",sub:"Arrivez et déplacez-vous en toute simplicité",
+    yoan:"Yoan · Chauffeur privé",yoanD:"Notre chauffeur de confiance. Transport privé dans tout le pays et tourisme bilingue français-espagnol. Réservez à l'avance sur WhatsApp.",
+    wa:"WhatsApp",ig:"Instagram et Facebook",msg:"Bonjour Yoan, je suis client de Coco Beach. J'ai besoin d'un transport de ___ à ___ le ___.",
+    sh:"Navette partagée",shD:"L'option la plus économique depuis Antigua (environ 2 heures). Écrivez-nous, nous vous aidons à réserver.",shBtn:"Aide pour la navette",shMsg:"Bonjour, pouvez-vous m'aider à réserver une navette partagée pour Coco Beach ?"},
+  contact:{h:"<em>Contact</em>",sub:"Nous sommes tout près, écrivez-nous 24h/24",host:"Votre hôte · Coco Beach",
+    hostD:"Conseils, transport, excursions ou questions : nous répondons vite.",wa:"Écrire sur WhatsApp",ig:"Suivez-nous sur Instagram",
+    rev:"Vous avez aimé votre séjour ?",revD:"Votre avis nous aide énormément. Merci d'avoir choisi Coco Beach.",map:"Localisation"}
+},
+de:{
+  hero:{eyebrow:"El Paredón · Guatemala",pre:"Willkommen",tag:"Ein Boutique-Surf- und Wellnesshotel, eine Minute vom Pazifik. Alles für deinen Aufenthalt an einem Ort."},
+  strip:{in:"Check-in",out:"Check-out",wifi:"Passwort kopieren"},
+  nav:{arrive:"Ankunft",wifi:"WLAN",rules:"Hausregeln",night:"Nachts",amen:"Ausstattung",house:"Das Haus",surf:"Surfen",act:"Aktivitäten",food:"Restaurants",local:"Lokalführer",ride:"Transport",contact:"Kontakt"},
+  arrive:{h:"Deine <em>Ankunft</em>",sub:"Check-in, Parken und Anfahrt",box:"Zeiten",ci:"Check-in",co:"Check-out",
+    recep:"Persönlicher Empfang",recepD:"Unser Team empfängt dich und übergibt dir den Zugang. Sag uns per WhatsApp, wann du ankommst, und wir richten uns danach.",
+    park:"Privatparkplatz",parkD:"Parkplätze gibt es direkt auf dem Grundstück.",
+    how:"Anfahrt",howL:["Fahre bis zum Super 24 und weiter Richtung Meer: Wir sind direkt dahinter.","An der Ecke siehst du ein weißes Gebäude mit Säulen, gegenüber dem Restaurant in Raumschiff-Form (Spaceship). Dieses weiße Haus sind wir.","Parkplatzeinfahrt: Straße parallel zum Meer.","Hoteleingang: Straße senkrecht zum Meer."],
+    map:"In Google Maps öffnen",waArr:"Ankunftszeit mitteilen",waMsg:"Hallo, ich bin Gast im Coco Beach. Ich komme am ___ gegen ___ an.",
+    out:"Check-out bis 11:00",outL:["Klimaanlage und Licht ausschalten.","Handtücher im Zimmer lassen.","Türen und Fenster schließen.","Schlüssel und Zugangskarte an unser Team zurückgeben."]},
+  wifi:{h:"<em>WLAN</em>",sub:"Auf dem ganzen Grundstück",net:"Netzwerk",pass:"Passwort",copy:"Kopieren",ok:"Kopiert",steps:["Öffne die WLAN-Einstellungen deines Handys.","Wähle das Netzwerk „Cocobeach 2.0“.","Passwort einfügen und verbinden."]},
+  rules:{h:"<em>Hausregeln</em>",sub:"Damit alle die Ruhe genießen",
+    L:["Nur für Erwachsene: ab 18 Jahren, keine Kinder.","Keine Haustiere.","Keine nicht angemeldeten Besucher.","Wir sind ein Boutique-Wellnesshotel: Rauchen nur im Freien, nie in Innenräumen.","Kein Essen in den Zimmern.","Kein Essen und kein Glas am Pool.","Vor dem Pool bitte duschen.","Keine Waffen auf dem Grundstück.","Keine Partys oder Veranstaltungen.","Beschädigte Gegenstände sowie verlorene Schlüssel oder Karten werden berechnet."],
+    thanks:"Danke, dass du uns hilfst, diesen Ort in El Paredón zu bewahren."},
+  night:{h:"<em>Nachts</em>",sub:"Zeiten, Zugang und Ruhe",
+    hours:"Gemeinschaftsbereiche 9–21 Uhr",hoursD:"Pool, Billard, Lounge und Gemeinschaftsbereiche sind von 9 bis 21 Uhr geöffnet.",
+    nfc:"Zugang mit NFC-Karte",nfcD:"Mit deiner Karte kommst du jederzeit aufs Grundstück. Trag sie immer bei dir.",
+    quiet:"Ruhe für alle",quietD:"Wenn du nachts zurückkommst, bitte leise sein: Andere Gäste schlafen. Ab 22 Uhr gedämpfte Lautstärke.",
+    cam:"Sicherheit rund um die Uhr",camD:"Kameras gibt es nur in den Außenbereichen. Nie in Zimmern oder Bädern: Deine Privatsphäre ist garantiert."},
+  amen:{h:"<em>Ausstattung</em>",sub:"Alles im Aufenthalt inklusive",note:"Pool, Billard und Gemeinschaftsbereiche: 9–21 Uhr.",
+    L:{pool:"Pool",billiard:"Billardtisch",sofa:"Lounge",glass:"Bar",hammock:"Hängematten",chair:"Strandstühle",shower:"Außendusche",drop:"Trinkwasser",laundry:"Wäscheservice",snow:"Klimaanlage",wifi:"WLAN",parking:"Privatparkplatz"}},
+  house:{h:"Das <em>Haus</em> nutzen",sub:"Kleine Details, die den Unterschied machen",
+    L:[["snow","Klimaanlage","Jedes Zimmer hat eine eigene Klimaanlage mit Fernbedienung. Türen und Fenster schließen, damit es schneller kühlt. Beim Gehen ausschalten."],["bulb","Licht","Bitte das Licht ausschalten, wenn du das Zimmer verlässt."],["drop","Trinkwasser","Auf jeder Etage gibt es Trinkwasser zur Selbstbedienung."],["towel","Handtücher","Zimmerhandtücher bleiben auf dem Grundstück. Für den Strand bitte nach Strandtüchern fragen (je nach Verfügbarkeit)."],["shower","Außendusche","Spül den Sand ab, bevor du in den Pool oder ins Zimmer gehst."],["billiard","Billardtisch","Bitte nichts auf den Tisch legen, außer zum Spielen."],["laundry","Wäsche","Schreib uns per WhatsApp, wenn du Wäsche waschen lassen möchtest."]]},
+  surf:{h:"Zeit zum <em>Surfen</em>",sub:"Pazifikwellen eine Minute entfernt",
+    intro:"Wir geben selbst keinen Surfunterricht, aber in El Paredón gibt es Surfschulen und Brettverleih gleich um die Ecke. Auf infoelparedon.com findest du alle Angebote mit Zeiten und Preisen.",
+    btn:"Surfschulen und Brettverleih",tips:"Tipps fürs Meer",
+    L:["Morgens sind die Wellen meist sauberer und es weht weniger Wind.","Der Pazifik hat hier starke Strömungen: Ohne Erfahrung bitte mit Lehrer surfen.","Der Vulkansand wird mittags sehr heiß: Sandalen tragen.","Immer Sonnencreme: Zwischen 11 und 15 Uhr brennt die Sonne stark.","Strandstühle stehen dir zur Verfügung."]},
+  act:{h:"<em>Aktivitäten</em>",sub:"Das Beste von El Paredón und Umgebung",
+    L:[["tree","Mangroven von Sipacate","Bootsfahrt durch die Kanäle des Nationalparks Sipacate-Naranjo."],["turtle","Schildkröten freilassen","Hilf mit, Babyschildkröten ins Meer zu entlassen (in der Saison)."],["whale","Walbeobachtung","Bootstouren zu Buckelwalen (in der Saison)."],["fish","Angeln","Sportfischen oder mit lokalen Fischern hinausfahren."],["kayak","Kajak","Paddeln durch die Mangroven bei Sonnenauf- oder -untergang."],["horse","Ausritt","Reiten am Strand bei Sonnenuntergang."],["mountain","Vulkane und Antigua","Ausflüge nach Antigua Guatemala und zu den Vulkanen, etwa 2 Stunden entfernt."]],
+    btn:"Touren ansehen und buchen",note:"Zeiten, Preise und Kontakte für alle Aktivitäten findest du auf infoelparedon.com."},
+  food:{h:"Wo <em>essen</em>",sub:"Unsere Favoriten: Wir kennen die Besitzer",intro:"Vertrauenswürdige Adressen, wenige Gehminuten entfernt. Sag, dass du im Coco Beach wohnst.",
+    tags:{peru:"Peruanisch",port:"Portugiesisch",kitchen:"Küche",ceviche:"Ceviche",seafood:"Meeresfrüchte",local:"Lokale Küche",bar:"Bar",cafe:"Café",fav:"Lokaler Favorit",pizza:"Pizza"}},
+  local:{h:"<em>Lokalführer</em>",sub:"Services und wichtige Nummern",serv:"Services im Ort",
+    L:[["cash","Geldautomat","Im Ort gibt es einen Geldautomaten, aber er hat nicht immer Bargeld."],["cash","Bargeld mitbringen","Viele Orte akzeptieren nur Quetzales in bar."],["card","Karte","Einige Restaurants und Läden akzeptieren Karte."],["pill","Apotheke","Im Ort gibt es eine Apotheke."]],
+    shops:"Läden",super:"Super 24",torre:"La Torre Express",shopD:"Supermarkt",
+    sos:"Notfälle",police:"Polizei",amb:"Krankenwagen",doctor:"Notarzt",tourist:"Touristenhilfe",call:"Anrufen"},
+  ride:{h:"<em>Transport</em>",sub:"Entspannt ankommen und unterwegs sein",
+    yoan:"Yoan · Privatfahrer",yoanD:"Unser Fahrer des Vertrauens. Privattransport im ganzen Land und zweisprachige Touren auf Französisch und Spanisch. Bitte rechtzeitig per WhatsApp buchen.",
+    wa:"WhatsApp",ig:"Instagram und Facebook",msg:"Hallo Yoan, ich bin Gast im Coco Beach. Ich brauche eine Fahrt von ___ nach ___ am ___.",
+    sh:"Shuttle (geteilt)",shD:"Die günstigste Option ab Antigua (ca. 2 Stunden). Schreib uns, wir helfen dir bei der Buchung.",shBtn:"Hilfe beim Shuttle",shMsg:"Hallo, könnt ihr mir helfen, ein Shuttle zum Coco Beach zu buchen?"},
+  contact:{h:"<em>Kontakt</em>",sub:"Wir sind in der Nähe, schreib uns rund um die Uhr",host:"Dein Gastgeber · Coco Beach",
+    hostD:"Tipps, Transport, Touren oder Fragen: Wir antworten schnell.",wa:"Per WhatsApp schreiben",ig:"Folge uns auf Instagram",
+    rev:"Hat dir dein Aufenthalt gefallen?",revD:"Deine Bewertung hilft uns sehr. Danke, dass du Coco Beach gewählt hast.",map:"Lage"}
+},
+ru:{
+  hero:{eyebrow:"Эль-Паредон · Гватемала",pre:"Добро пожаловать",tag:"Бутик-отель для сёрфинга и отдыха в минуте от Тихого океана. Всё, что нужно для вашего пребывания, в одном месте."},
+  strip:{in:"Заезд",out:"Выезд",wifi:"Копировать пароль"},
+  nav:{arrive:"Заезд",wifi:"Wi-Fi",rules:"Правила",night:"Ночью",amen:"Удобства",house:"Дом",surf:"Сёрфинг",act:"Досуг",food:"Рестораны",local:"Гид",ride:"Транспорт",contact:"Контакты"},
+  arrive:{h:"Ваш <em>заезд</em>",sub:"Заезд, парковка и как нас найти",box:"Время",ci:"Заезд",co:"Выезд",
+    recep:"Встречаем лично",recepD:"Наш персонал встретит вас и выдаст доступ. Сообщите время прибытия в WhatsApp, и мы подстроимся под вас.",
+    park:"Частная парковка",parkD:"Парковка есть на территории отеля.",
+    how:"Как добраться",howL:["Доезжайте до Super 24 и двигайтесь к морю: мы сразу за ним.","На углу вы увидите белое здание с колоннами напротив ресторана в форме космического корабля (Spaceship). Этот белый дом — мы.","Въезд на парковку: улица, параллельная морю.","Вход в отель: улица, перпендикулярная морю."],
+    map:"Открыть в Google Maps",waArr:"Сообщить время прибытия",waMsg:"Здравствуйте, я гость Coco Beach. Приеду ___ примерно в ___.",
+    out:"Выезд до 11:00",outL:["Выключите кондиционер и свет.","Оставьте полотенца в номере.","Закройте двери и окна.","Верните ключ и карту доступа персоналу."]},
+  wifi:{h:"<em>Wi-Fi</em>",sub:"Покрытие на всей территории",net:"Сеть",pass:"Пароль",copy:"Копировать",ok:"Скопировано",steps:["Откройте настройки Wi-Fi на телефоне.","Выберите сеть «Cocobeach 2.0».","Вставьте пароль и подключитесь."]},
+  rules:{h:"Правила <em>дома</em>",sub:"Чтобы все наслаждались тишиной",
+    L:["Только для взрослых: от 18 лет, без детей.","Без домашних животных.","Незарегистрированные гости не допускаются.","Мы бутик-отель для отдыха и здоровья: курить можно только на открытом воздухе, в помещениях запрещено.","Не ешьте в номерах.","Еда и стекло у бассейна запрещены.","Примите душ перед бассейном.","Оружие на территории запрещено.","Вечеринки и мероприятия запрещены.","Разбитые вещи, а также потерянные ключи и карты оплачиваются."],
+    thanks:"Спасибо, что помогаете беречь этот уголок Эль-Паредона."},
+  night:{h:"<em>Ночью</em>",sub:"Часы работы, доступ и отдых",
+    hours:"Общие зоны с 9:00 до 21:00",hoursD:"Бассейн, бильярд, гостиная и общие зоны открыты с 9 утра до 9 вечера.",
+    nfc:"Вход по NFC-карте",nfcD:"Вы можете войти на территорию в любое время по своей карте. Всегда носите её с собой.",
+    quiet:"Тишина для отдыха",quietD:"Возвращаясь ночью, соблюдайте тишину: другие гости отдыхают. После 22:00 — умеренная громкость.",
+    cam:"Охрана 24/7",camD:"Камеры есть только в общих зонах на улице. Никогда в номерах и ванных: ваша приватность гарантирована."},
+  amen:{h:"<em>Удобства</em>",sub:"Всё включено в проживание",note:"Бассейн, бильярд и общие зоны: с 9:00 до 21:00.",
+    L:{pool:"Бассейн",billiard:"Бильярд",sofa:"Гостиная",glass:"Бар",hammock:"Гамаки",chair:"Пляжные кресла",shower:"Уличный душ",drop:"Питьевая вода",laundry:"Прачечная",snow:"Кондиционер",wifi:"Wi-Fi",parking:"Частная парковка"}},
+  house:{h:"Как пользоваться <em>домом</em>",sub:"Мелочи, которые важны",
+    L:[["snow","Кондиционер","В каждом номере свой кондиционер с пультом. Держите двери и окна закрытыми, чтобы быстрее охладить. Выключайте, уходя."],["bulb","Свет","Пожалуйста, выключайте свет, когда выходите из номера."],["drop","Питьевая вода","На каждом этаже есть питьевая вода, наливайте в любое время."],["towel","Полотенца","Полотенца из номера нельзя выносить с территории. Для пляжа попросите пляжные полотенца (при наличии)."],["shower","Уличный душ","Смойте песок перед бассейном или номером."],["billiard","Бильярд","Ничего не кладите на стол, кроме как для игры."],["laundry","Прачечная","Напишите нам в WhatsApp, если нужна стирка."]]},
+  surf:{h:"Время <em>сёрфинга</em>",sub:"Волны Тихого океана в минуте",
+    intro:"Мы сами не проводим уроки сёрфинга, но в Эль-Паредоне рядом есть школы и прокат досок. На infoelparedon.com вы найдёте все варианты с расписанием и ценами.",
+    btn:"Школы и прокат досок",tips:"Советы об океане",
+    L:["По утрам волны обычно чище, а ветра меньше.","Здесь сильные течения: без опыта занимайтесь с инструктором.","Вулканический песок в полдень очень горячий: носите сандалии.","Всегда используйте солнцезащитный крем: солнце сильнее всего с 11 до 15.","Пляжные кресла в вашем распоряжении."]},
+  act:{h:"<em>Досуг</em>",sub:"Лучшее в Эль-Паредоне и окрестностях",
+    L:[["tree","Мангры Сипакате","Прогулка на лодке по каналам национального парка Сипакате-Наранхо."],["turtle","Выпуск черепах","Помогите выпустить черепашат в океан (в сезон)."],["whale","Наблюдение за китами","Морские выходы к горбатым китам (в сезон)."],["fish","Рыбалка","Спортивная рыбалка или с местными рыбаками."],["kayak","Каяк","Прогулка по манграм на рассвете или закате."],["horse","Конная прогулка","Прогулка верхом по пляжу на закате."],["mountain","Вулканы и Антигуа","Поездки в Антигуа-Гватемалу и к вулканам, около 2 часов."]],
+    btn:"Смотреть туры и бронировать",note:"Расписание, цены и контакты всех занятий — на infoelparedon.com."},
+  food:{h:"Где <em>поесть</em>",sub:"Наши любимые места: мы знаем владельцев",intro:"Проверенные места в нескольких минутах ходьбы. Скажите, что вы из Coco Beach.",
+    tags:{peru:"Перуанская",port:"Португальская",kitchen:"Кухня",ceviche:"Севиче",seafood:"Морепродукты",local:"Местная кухня",bar:"Бар",cafe:"Кафе",fav:"Местный фаворит",pizza:"Пицца"}},
+  local:{h:"Местный <em>гид</em>",sub:"Услуги и полезные номера",serv:"Услуги в посёлке",
+    L:[["cash","Банкомат","В посёлке есть банкомат, но наличные в нём бывают не всегда."],["cash","Берите наличные","Во многих местах принимают только кетцали наличными."],["card","Карты","Некоторые рестораны и магазины принимают карты."],["pill","Аптека","В посёлке есть аптека."]],
+    shops:"Магазины",super:"Super 24",torre:"La Torre Express",shopD:"Супермаркет",
+    sos:"Экстренные службы",police:"Полиция",amb:"Скорая помощь",doctor:"Срочный врач",tourist:"Помощь туристам",call:"Позвонить"},
+  ride:{h:"<em>Транспорт</em>",sub:"Приезжайте и передвигайтесь без хлопот",
+    yoan:"Йоан · Частный водитель",yoanD:"Наш проверенный водитель. Частные трансферы по всей стране и экскурсии на французском и испанском. Бронируйте заранее в WhatsApp.",
+    wa:"WhatsApp",ig:"Instagram и Facebook",msg:"Здравствуйте, Йоан, я гость Coco Beach. Нужен трансфер из ___ в ___ ___.",
+    sh:"Общий шаттл",shD:"Самый бюджетный вариант из Антигуа (около 2 часов). Напишите нам, и мы поможем забронировать.",shBtn:"Помощь с шаттлом",shMsg:"Здравствуйте, помогите, пожалуйста, забронировать шаттл до Coco Beach."},
+  contact:{h:"<em>Контакты</em>",sub:"Мы рядом, пишите 24/7",host:"Ваш хозяин · Coco Beach",
+    hostD:"Советы, транспорт, туры или вопросы: отвечаем быстро.",wa:"Написать в WhatsApp",ig:"Мы в Instagram",
+    rev:"Понравилось у нас?",revD:"Ваш отзыв очень нам помогает. Спасибо, что выбрали Coco Beach.",map:"Расположение"}
+}
+};
+
+let lang = "es", current = "arrive";
+const ic = n => `<svg class="i"><use href="#i-${n}"/></svg>`;
+const wa = (num, msg) => `https://wa.me/${num}${msg ? "?text=" + encodeURIComponent(msg) : ""}`;
+const ext = 'target="_blank" rel="noopener"';
+const get = path => path.split(".").reduce((o, k) => (o || {})[k], T[lang]);
+const row = (i, b, p) => `<div class="row"><div class="ib">${ic(i)}</div><div class="t"><b>${b}</b>${p ? `<p>${p}</p>` : ""}</div></div>`;
+const link = (i, b, s, url, extra = "") => `<a href="${url}" ${ext}><div class="ib">${ic(i)}</div><div class="t"><b>${b}${extra}</b>${s ? `<small>${s}</small>` : ""}</div><span class="go">${ic("arrow")}</span></a>`;
+const head = (h, s) => `<h2 class="h">${h}</h2><p class="sub">${s}</p>`;
+
+function render() {
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(el => { el.textContent = get(el.dataset.t); });
+  document.getElementById("langs").innerHTML = LANGS.map(l => `<button class="lang${l === lang ? " on" : ""}" data-l="${l}" type="button">${l.toUpperCase()}</button>`).join("");
+  document.getElementById("nav").innerHTML = NAV.map(([k, i]) => `<button class="tile${k === current ? " on" : ""}" data-s="${k}" type="button"><span class="ic">${ic(i)}</span><span>${t.nav[k]}</span></button>`).join("");
+
+  const a = t.arrive, w = t.wifi, r = t.rules, n = t.night, am = t.amen, hs = t.house, s = t.surf, ac = t.act, f = t.food, lo = t.local, ri = t.ride, c = t.contact;
+  const S = {};
+  S.arrive = head(a.h, a.sub) + `
+    <div class="card dark"><p class="lbl">${a.box}</p>
+      <div class="boxes"><div class="box"><small>${a.ci}</small><b>15:00</b></div><div class="box"><small>${a.co}</small><b>11:00</b></div></div>
+      <a class="btn wa" href="${wa(WA, a.waMsg)}" ${ext}>${ic("wa")}${a.waArr}</a></div>
+    <div class="card">${row("user", a.recep, a.recepD)}${row("parking", a.park, a.parkD)}</div>
+    <div class="photo"><img src="../img/ext-pool-day.webp" alt="" loading="lazy"></div>
+    <div class="card"><p class="lbl">${a.how}</p><ol class="steps">${a.howL.map(x => `<li>${x}</li>`).join("")}</ol>
+      <a class="btn" href="${MAP}" ${ext}>${ic("pin")}${a.map}</a></div>
+    <div class="card"><p class="lbl">${a.out}</p><ol class="steps">${a.outL.map(x => `<li>${x}</li>`).join("")}</ol></div>`;
+  S.wifi = head(w.h, w.sub) + `
+    <div class="card dark"><p class="lbl">WiFi</p>
+      <div class="wifi-box"><div><small>${w.net}</small><b>${WIFI.ssid}</b></div><button class="copy" data-copy="${WIFI.ssid}" type="button">${w.copy}</button></div>
+      <div class="wifi-box"><div><small>${w.pass}</small><b>${WIFI.pass}</b></div><button class="copy" data-copy="${WIFI.pass}" type="button">${w.copy}</button></div></div>
+    <div class="card"><ol class="steps">${w.steps.map(x => `<li>${x}</li>`).join("")}</ol></div>`;
+  S.rules = head(r.h, r.sub) + `<div class="card"><ul class="dots">${r.L.map(x => `<li>${x}</li>`).join("")}</ul></div>
+    <div class="note">${ic("palm")}<span>${r.thanks}</span></div>`;
+  S.night = head(n.h, n.sub) + `<div class="photo"><img src="../img/ext-pool-night.webp" alt="" loading="lazy"></div>
+    <div class="card dark">${row("clock", n.hours, n.hoursD)}${row("nfc", n.nfc, n.nfcD)}${row("shh", n.quiet, n.quietD)}${row("cam", n.cam, n.camD)}</div>`;
+  S.amen = head(am.h, am.sub) + `<div class="amen">${Object.entries(am.L).map(([k, v]) => `<div class="am">${ic(k)}${v}</div>`).join("")}</div>
+    <div class="note">${ic("clock")}<span>${am.note}</span></div>`;
+  S.house = head(hs.h, hs.sub) + `<div class="card">${hs.L.map(([i, b, p]) => row(i, b, p)).join("")}</div>`;
+  S.surf = head(s.h, s.sub) + `<div class="photo"><img src="../img/ext-palms.webp" alt="" loading="lazy"></div>
+    <div class="card dark"><p class="lbl">Surf</p><p class="p">${s.intro}</p><a class="btn sea" href="${INFO}" ${ext}>${ic("wave")}${s.btn}</a></div>
+    <div class="card"><p class="lbl">${s.tips}</p><ul class="dots">${s.L.map(x => `<li>${x}</li>`).join("")}</ul></div>`;
+  S.act = head(ac.h, ac.sub) + `<div class="card">${ac.L.map(([i, b, p]) => row(i, b, p)).join("")}</div>
+    <a class="btn coral" href="${INFO}" ${ext}>${ic("compass")}${ac.btn}</a>
+    <div class="note">${ic("info")}<span>${ac.note}</span></div>`;
+  S.food = head(f.h, f.sub) + `<div class="card"><p class="p" style="margin-bottom:14px;color:var(--muted)">${f.intro}</p>
+    <div class="list">${FOOD.map(x => link("food", x.n, f.tags[x.tag], x.url)).join("")}</div></div>`;
+  S.local = head(lo.h, lo.sub) + `<div class="card"><p class="lbl">${lo.serv}</p>${lo.L.map(([i, b, p]) => row(i, b, p)).join("")}</div>
+    <div class="card"><p class="lbl">${lo.shops}</p><div class="list">
+      ${link("cart", lo.super, lo.shopD, "https://maps.app.goo.gl/ceVjiSRhtanebT4g6")}
+      ${link("cart", lo.torre, lo.shopD, "https://maps.app.goo.gl/8sJ2FoDGr6mQtS7YA")}</div></div>
+    <div class="card dark"><p class="lbl">${lo.sos}</p><div class="list">${SOS.map(x => `<a href="tel:${x.tel}"><div class="ib" style="background:rgba(255,255,255,.07);color:var(--coral)">${ic(x.ic)}</div><div class="t"><b style="color:#fff">${lo[x.k]}</b><small style="color:rgba(255,255,255,.55)">${x.show}</small></div><span class="go" style="color:var(--sea)">${ic("phone")}</span></a>`).join("")}</div></div>`;
+  S.ride = head(ri.h, ri.sub) + `
+    <div class="card dark"><div class="host"><div class="av" style="background:rgba(255,255,255,.08);color:var(--sea)">${ic("car")}</div><div><b>${ri.yoan}</b><small style="color:rgba(255,255,255,.55)">FR · ES</small></div></div>
+      <p class="p">${ri.yoanD}</p>
+      <div class="btns2"><a class="btn wa" href="${wa("50252021373", ri.msg)}" ${ext}>${ic("wa")}5202 1373</a><a class="btn wa" href="${wa("50241239495", ri.msg)}" ${ext}>${ic("wa")}4123 9495</a></div>
+      <a class="btn light" href="https://instagram.com/guate.enroute" ${ext}>${ic("ig")}@guate.enroute · ${ri.ig}</a></div>
+    <div class="card"><p class="lbl">${ri.sh}</p><p class="p">${ri.shD}</p><a class="btn" href="${wa(WA, ri.shMsg)}" ${ext}>${ic("wa")}${ri.shBtn}</a></div>`;
+  S.contact = head(c.h, c.sub) + `
+    <div class="card dark"><div class="host"><div class="av"><img src="../img/logo-mark-dark.png" alt=""></div><div><b>Sebastien</b><small style="color:rgba(255,255,255,.55)">${c.host}</small></div></div>
+      <p class="p">${c.hostD}</p>
+      <a class="btn wa" href="${wa(WA)}" ${ext}>${ic("wa")}${c.wa} · +502 3999 5950</a>
+      <a class="btn light" href="${IG}" ${ext}>${ic("ig")}@cocobeachgt · ${c.ig}</a></div>
+    <a class="btn" href="${MAP}" ${ext}>${ic("pin")}${c.map} · Google Maps</a>
+    <div class="card center" style="margin-top:10px"><p class="lbl">${c.rev}</p>
+      <div class="stars">${ic("star").repeat(5)}</div><p class="p" style="color:var(--muted)">${c.revD}</p>
+      <div class="btns2" style="grid-template-columns:1fr 1fr 1fr"><a class="btn light" href="${REVIEW.google}" ${ext}>Google</a><a class="btn light" href="${REVIEW.airbnb}" ${ext}>Airbnb</a><a class="btn light" href="${REVIEW.booking}" ${ext}>Booking</a></div></div>`;
+
+  document.getElementById("main").innerHTML = NAV.map(([k]) => `<section class="sec${k === current ? " on" : ""}" id="s-${k}">${S[k]}</section>`).join("");
+}
+
+function show(k, scroll) {
+  if (!T.es.nav[k]) k = "arrive";
+  current = k;
+  document.querySelectorAll(".tile").forEach(el => el.classList.toggle("on", el.dataset.s === k));
+  document.querySelectorAll(".sec").forEach(el => el.classList.toggle("on", el.id === "s-" + k));
+  try { history.replaceState(null, "", "#" + k); } catch (e) {}
+  if (scroll) document.getElementById("main").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+async function copy(text, btn) {
+  try { await navigator.clipboard.writeText(text); }
+  catch (e) { const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (_) {} ta.remove(); }
+  if (btn) { const old = btn.innerHTML; btn.classList.add("ok"); btn.textContent = T[lang].wifi.ok; setTimeout(() => { btn.classList.remove("ok"); btn.innerHTML = old; }, 1600); }
+}
+
+document.addEventListener("click", e => {
+  const l = e.target.closest("[data-l]");
+  if (l) { lang = l.dataset.l; try { localStorage.setItem("cb-lang", lang); } catch (_) {} render(); return; }
+  const s = e.target.closest("[data-s]");
+  if (s) { show(s.dataset.s, true); return; }
+  const c = e.target.closest("[data-copy]");
+  if (c) { copy(c.dataset.copy, c); return; }
+  if (e.target.closest("#wifiChip")) { const b = document.querySelector("#wifiChip span"); copy(WIFI.pass); b.textContent = T[lang].wifi.ok; setTimeout(() => { b.textContent = T[lang].strip.wifi; }, 1600); }
+});
+
+(function init() {
+  let saved = null;
+  try { saved = localStorage.getItem("cb-lang"); } catch (_) {}
+  const nav = (navigator.language || "es").slice(0, 2).toLowerCase();
+  lang = LANGS.includes(saved) ? saved : (LANGS.includes(nav) ? nav : "es");
+  const h = location.hash.slice(1);
+  if (T.es.nav[h]) current = h;
+  render();
+})();
+</script>
+</body>
+</html>

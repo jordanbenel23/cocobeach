@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coco Beach · Villa en El Paredón, Guatemala</title>
+  <meta name="description" content="Coco Beach: villa con piscina en El Paredón, Guatemala. Reserva una habitación o la villa completa por WhatsApp.">
+  <meta property="og:title" content="Coco Beach · El Paredón">
+  <meta property="og:description" content="Villa con piscina, 5 habitaciones y atardeceres sobre el Pacífico. Reserva por WhatsApp.">
+  <meta property="og:image" content="img/ext-pool-day.webp">
+  <link rel="apple-touch-icon" href="img/logo-mark-dark.png">
+  <meta name="theme-color" content="#0c1b20">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230c1b20'/%3E%3Cpath d='M31 52c1-9 1-17-1-25' stroke='%23f3ebe0' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M30 27c-6-6-14-5-18 0 6-2 11-1 18 0zm0 0c5-7 13-8 19-4-7 0-12 1-19 4zm0 0c-2-7-8-11-14-10 6 2 9 5 14 10zm0 0c4-5 10-7 16-5-6 1-10 2-16 5z' fill='%233fd1c4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-mark"><img src="img/logo-full-light.png" alt="Coco Beach El Paredón" width="342" height="287"></div>
+  <div class="loader-bar"><i id="loaderBar"></i></div>
+</div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="Coco Beach · El Paredón">
+    <img class="logo-light" src="img/logo-h-light.png" alt="Coco Beach El Paredón" width="776" height="215">
+    <img class="logo-dark" src="img/logo-h-dark.png" alt="" width="776" height="215">
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#villa" data-i18n="nav.villa">La villa</a>
+    <a href="#rooms" data-i18n="nav.rooms">Habitaciones</a>
+    <a href="#amenities" data-i18n="nav.amenities">Amenidades</a>
+    <a href="#gallery" data-i18n="nav.gallery">Galería</a>
+    <a href="#location" data-i18n="nav.location">Ubicación</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="lang" id="langBtn" aria-label="Cambiar idioma / Change language"><span data-l="es">ES</span><span data-l="en">EN</span></button>
+    <a href="#book" class="btn btn-sm btn-coral" data-i18n="nav.book">Reservar</a>
+    <button class="burger" id="burger" aria-label="Menú"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO 3D ============ -->
+  <section class="hero" id="hero">
+    <div class="hero-sticky">
+      <div class="cine" id="cine" aria-hidden="true">
+        <figure class="shot" data-start="0">
+          <picture><source media="(orientation: portrait)" srcset="img/ext-palms.webp"><img src="img/ext-pool-day.webp" alt="" fetchpriority="high"></picture>
+        </figure>
+        <figure class="shot" data-start=".3">
+          <picture><source media="(orientation: portrait)" srcset="img/ext-pool-day.webp"><img src="img/ext-pool-day2.webp" alt=""></picture>
+        </figure>
+        <figure class="shot" data-start=".62">
+          <picture><source media="(orientation: portrait)" srcset="img/ext-pool-night2.webp"><img src="img/ext-pool-night.webp" alt=""></picture>
+        </figure>
+        <div class="grade grade-sunset" id="gradeSunset"></div>
+        <div class="grade grade-flare" id="gradeFlare"></div>
+        <div class="grade grade-night" id="gradeNight"></div>
+        <div class="grain"></div>
+      </div>
+      <div class="hero-vignette"></div>
+
+      <div class="hero-copy" id="heroCopy">
+        <div class="chapter is-on" data-ch="0">
+          <p class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow">El Paredón · Pacífico de Guatemala</span></p>
+          <h1><span data-i18n="hero.t1a">Donde el sol</span><br><em data-i18n="hero.t1b">se esconde en el mar</em></h1>
+          <p class="lead" data-i18n="hero.l1">Una villa privada con piscina, palmeras y atardeceres que no se olvidan.</p>
+        </div>
+        <div class="chapter" data-ch="1">
+          <p class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow2">Coco Beach Villa</span></p>
+          <h2><span data-i18n="hero.t2a">5 habitaciones.</span><br><em data-i18n="hero.t2b">Una piscina que brilla de noche.</em></h2>
+          <p class="lead" data-i18n="hero.l2">Cada habitación con baño privado. Sala de juegos, bar y terraza junto al agua.</p>
+        </div>
+        <div class="chapter" data-ch="2">
+          <p class="eyebrow"><span class="dot"></span><span data-i18n="hero.eyebrow3">Reserva directo</span></p>
+          <h2><span data-i18n="hero.t3a">Una habitación</span><br><em data-i18n="hero.t3b">o la villa entera.</em></h2>
+          <div class="hero-ctas">
+            <a href="#book" class="btn btn-coral" data-book="room" data-i18n="cta.room">Reservar habitación</a>
+            <a href="#book" class="btn btn-glass" data-book="villa" data-i18n="cta.villa">Reservar villa completa</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-ui">
+        <div class="progress" aria-hidden="true"><i id="heroProgress"></i></div>
+        <div class="scroll-hint" id="scrollHint"><span data-i18n="hero.scroll">Desliza</span><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VILLA INTRO ============ -->
+  <section class="section intro" id="villa">
+    <div class="wrap intro-grid">
+      <div class="intro-text reveal">
+        <p class="kicker" data-i18n="villa.kicker">La villa</p>
+        <h2 class="display" data-i18n-html="villa.title">Arquitectura blanca, <em>alma de playa</em>.</h2>
+        <p data-i18n="villa.p1">Coco Beach es una villa moderna de dos niveles rodeada de palmeras en El Paredón, el pueblo surfero más querido de Guatemala. Ventanales de piso a techo, una piscina con iluminación nocturna y espacios pensados para desconectarse.</p>
+        <p data-i18n="villa.p2">Ven en pareja y reserva una habitación, o trae a toda tu gente y quédate con la villa completa.</p>
+        <ul class="stats">
+          <li><b>5</b><span data-i18n="villa.s1">habitaciones</span></li>
+          <li><b>5</b><span data-i18n="villa.s2">baños privados</span></li>
+          <li><b>1</b><span data-i18n="villa.s3">piscina iluminada</span></li>
+          <li><b>∞</b><span data-i18n="villa.s4">atardeceres</span></li>
+        </ul>
+      </div>
+      <div class="depth-stack reveal" id="depthStack">
+        <figure class="ds ds-back"><img src="img/ext-pool-night.webp" alt="Piscina iluminada de noche" loading="lazy"></figure>
+        <figure class="ds ds-mid"><img src="img/ext-pool-day.webp" alt="Fachada de la villa y piscina de día" loading="lazy"></figure>
+        <figure class="ds ds-front"><img src="img/ext-platter.webp" alt="Tabla de quesos junto a la piscina" loading="lazy"></figure>
+        <div class="ds-badge"><span data-i18n="villa.badge">a pasos del Pacífico</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STAY OPTIONS ============ -->
+  <section class="section options" id="options">
+    <div class="wrap">
+      <p class="kicker center reveal" data-i18n="opt.kicker">Dos formas de quedarte</p>
+      <h2 class="display center reveal" data-i18n-html="opt.title">Elige tu <em>estancia</em></h2>
+      <div class="opt-grid">
+        <article class="opt-card tilt reveal">
+          <div class="opt-img"><img src="img/room1-4.webp" alt="Habitación con cama grande" loading="lazy"></div>
+          <div class="opt-body">
+            <span class="tag" data-i18n="opt.roomTag">Habitación privada</span>
+            <h3 data-i18n="opt.roomTitle">Tu propio rincón en la villa</h3>
+            <p data-i18n="opt.roomText">Reserva una de nuestras 5 habitaciones con baño privado y disfruta de la piscina, la sala de juegos y las áreas comunes.</p>
+            <a href="#book" class="btn btn-dark" data-book="room" data-i18n="cta.room">Reservar habitación</a>
+          </div>
+        </article>
+        <article class="opt-card opt-feature tilt reveal">
+          <div class="opt-img"><img src="img/ext-pool-day2.webp" alt="La villa completa con piscina" loading="lazy"></div>
+          <div class="opt-body">
+            <span class="tag tag-coral" data-i18n="opt.villaTag">Villa completa</span>
+            <h3 data-i18n="opt.villaTitle">Toda la villa, solo para tu grupo</h3>
+            <p data-i18n="opt.villaText">Las 5 habitaciones, la piscina, el bar y la sala de juegos en exclusiva. Ideal para familias, amigos, retiros y celebraciones.</p>
+            <a href="#book" class="btn btn-coral" data-book="villa" data-i18n="cta.villa">Reservar villa completa</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ROOMS ============ -->
+  <section class="section rooms" id="rooms">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="kicker" data-i18n="rooms.kicker">Habitaciones</p>
+          <h2 class="display" data-i18n-html="rooms.title">Descanso con <em>brisa de mar</em></h2>
+        </div>
+        <p class="sec-sub" data-i18n="rooms.sub">Todas con baño privado, acabados en mármol negro, espejos iluminados y amenidades de bienvenida.</p>
+      </div>
+      <div class="room-grid" id="roomGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ AMENITIES ============ -->
+  <section class="section amenities" id="amenities">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="kicker" data-i18n="am.kicker">Amenidades</p>
+          <h2 class="display" data-i18n-html="am.title">Todo para <em>no salir</em> de la villa</h2>
+        </div>
+      </div>
+      <div class="am-grid">
+        <div class="am reveal"><svg viewBox="0 0 24 24"><path d="M2 18c2 0 2-1.5 4-1.5S8 18 10 18s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M2 14c2 0 2-1.5 4-1.5S8 14 10 14s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5M7 11V4a2 2 0 0 1 4 0M15 11V4a2 2 0 0 1 4 0M7 7h8"/></svg><h4 data-i18n="am.pool">Piscina iluminada</h4><p data-i18n="am.poolT">Con mosaico, iluminación nocturna y hamacas bajo las palmeras.</p></div>
+        <div class="am reveal"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="2"/><circle cx="9" cy="12.5" r="1.4"/><circle cx="13" cy="11" r="1.4"/><circle cx="14" cy="14.5" r="1.4"/><path d="M5 18v3M19 18v3"/></svg><h4 data-i18n="am.games">Sala de juegos</h4><p data-i18n="am.gamesT">Mesa de billar, TV y sala lounge con vista a la piscina.</p></div>
+        <div class="am reveal"><svg viewBox="0 0 24 24"><path d="M8 3h8l-1 8a3 3 0 0 1-6 0zM12 14v7M8 21h8"/></svg><h4 data-i18n="am.bar">Bar y cocina</h4><p data-i18n="am.barT">Barra de madera, refrigeradores y espacio para cocinar en grupo.</p></div>
+        <div class="am reveal"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7l14 10M19 7L5 17"/><circle cx="12" cy="12" r="2.5"/></svg><h4 data-i18n="am.ac">Aire acondicionado</h4><p data-i18n="am.acT">Habitaciones con A/C y ventilador de techo para noches frescas.</p></div>
+        <div class="am reveal"><svg viewBox="0 0 24 24"><path d="M4 12h16v3a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM6 12V5a2 2 0 0 1 3.5-1.3M7 20l-1 2M17 20l1 2"/></svg><h4 data-i18n="am.bath">Baños privados</h4><p data-i18n="am.bathT">Duchas de mármol, espejos LED y amenidades Coco Beach.</p></div>
+        <div class="am reveal"><svg viewBox="0 0 24 24"><path d="M3 20h18M5 20c0-5 3-9 7-9s7 4 7 9M12 4v3M4.9 7.9l2 2M19.1 7.9l-2 2"/></svg><h4 data-i18n="am.sunset">Atardeceres</h4><p data-i18n="am.sunsetT">El sol cae directo sobre el Pacífico, a pasos de la villa.</p></div>
+        <div class="am reveal"><svg viewBox="0 0 24 24"><path d="M3 17c3-6 6-9 9-9s5 2 9 0M3 21c3-3 6-4 9-4s6 1 9-1M14 8c0-2 1-4 3-5"/></svg><h4 data-i18n="am.surf">Surf</h4><p data-i18n="am.surfT">El Paredón es la capital del surf en Guatemala, con olas todo el año.</p></div>
+        <div class="am reveal"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg><h4 data-i18n="am.flex">Reserva flexible</h4><p data-i18n="am.flexT">Por habitación o villa completa. Te respondemos por WhatsApp.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section gallery" id="gallery">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <p class="kicker" data-i18n="gal.kicker">Galería</p>
+          <h2 class="display" data-i18n-html="gal.title">Mira cada <em>rincón</em></h2>
+        </div>
+        <div class="filters" id="galFilters" role="tablist">
+          <button class="is-on" data-f="all" data-i18n="gal.all">Todo</button>
+          <button data-f="ext" data-i18n="gal.ext">Exterior</button>
+          <button data-f="int" data-i18n="gal.int">Interiores</button>
+          <button data-f="room" data-i18n="gal.room">Habitaciones</button>
+          <button data-f="bath" data-i18n="gal.bath">Baños</button>
+        </div>
+      </div>
+      <div class="masonry" id="masonry"></div>
+    </div>
+  </section>
+
+  <!-- ============ EL PAREDON ============ -->
+  <section class="paredon" id="paredon">
+    <div class="paredon-bg" style="background-image:url(img/ext-sunset.webp)"></div>
+    <div class="wrap paredon-inner reveal">
+      <p class="kicker light" data-i18n="par.kicker">El Paredón, Escuintla</p>
+      <h2 class="display light" data-i18n-html="par.title">Arena volcánica, <em>olas</em> y el cielo en llamas.</h2>
+      <p data-i18n="par.text">Un pueblo costero relajado en el Pacífico guatemalteco: surf por la mañana, hamaca por la tarde y el atardecer más lindo del país para cerrar el día.</p>
+    </div>
+  </section>
+
+  <!-- ============ BOOKING ============ -->
+  <section class="section book" id="book">
+    <div class="wrap book-grid">
+      <div class="book-copy reveal">
+        <p class="kicker" data-i18n="book.kicker">Reservas</p>
+        <h2 class="display" data-i18n-html="book.title">Reserva en <em>2 minutos</em> por WhatsApp</h2>
+        <p data-i18n="book.text">Elige tus fechas y te enviamos disponibilidad y tarifa directamente por WhatsApp. Sin comisiones, sin intermediarios.</p>
+        <ol class="steps">
+          <li><b>1</b><span data-i18n="book.s1">Completa el formulario</span></li>
+          <li><b>2</b><span data-i18n="book.s2">Se abre WhatsApp con tu mensaje listo</span></li>
+          <li><b>3</b><span data-i18n="book.s3">Confirmamos tu reserva</span></li>
+        </ol>
+        <a class="wa-direct" href="https://wa.me/50239995950" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7a.6.6 0 0 0 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.9 1 3.9.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.4z"/></svg>
+          <span>+502 3999 5950</span>
+        </a>
+      </div>
+
+      <form class="book-form reveal" id="bookForm" novalidate>
+        <div class="seg" role="radiogroup" aria-label="Tipo de reserva">
+          <input type="radio" name="type" id="tRoom" value="room" checked><label for="tRoom" data-i18n="form.room">Habitación</label>
+          <input type="radio" name="type" id="tVilla" value="villa"><label for="tVilla" data-i18n="form.villa">Villa completa</label>
+          <i class="seg-pill"></i>
+        </div>
+
+        <div class="field" id="roomField">
+          <label for="fRoom" data-i18n="form.whichRoom">Habitación</label>
+          <select id="fRoom">
+            <option value="any" data-i18n="form.anyRoom">Cualquiera disponible</option>
+            <option value="1" data-i18n="room.1.name">Habitación 1</option>
+            <option value="2" data-i18n="room.2.name">Habitación 2</option>
+            <option value="3" data-i18n="room.3.name">Habitación 3</option>
+            <option value="4" data-i18n="room.4.name">Habitación 4</option>
+            <option value="5" data-i18n="room.5.name">Habitación 5</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <div class="field"><label for="fIn" data-i18n="form.in">Llegada</label><input type="date" id="fIn" required></div>
+          <div class="field"><label for="fOut" data-i18n="form.out">Salida</label><input type="date" id="fOut" required></div>
+        </div>
+        <p class="nights" id="nights"></p>
+
+        <div class="row">
+          <div class="field">
+            <label data-i18n="form.adults">Adultos</label>
+            <div class="stepper" data-min="1" data-max="20"><button type="button" data-d="-1" aria-label="−">−</button><output id="fAdults">2</output><button type="button" data-d="1" aria-label="+">+</button></div>
+          </div>
+          <div class="field">
+            <label data-i18n="form.kids">Niños</label>
+            <div class="stepper" data-min="0" data-max="12"><button type="button" data-d="-1" aria-label="−">−</button><output id="fKids">0</output><button type="button" data-d="1" aria-label="+">+</button></div>
+          </div>
+        </div>
+
+        <div class="field"><label for="fName" data-i18n="form.name">Tu nombre</label><input type="text" id="fName" autocomplete="name" data-i18n-ph="form.namePh" placeholder="Nombre y apellido" required></div>
+        <div class="field"><label for="fMsg" data-i18n="form.msg">Comentarios (opcional)</label><textarea id="fMsg" rows="3" data-i18n-ph="form.msgPh" placeholder="Celebración, hora de llegada, preguntas…"></textarea></div>
+
+        <p class="form-err" id="formErr" role="alert"></p>
+        <button type="submit" class="btn btn-wa">
+          <svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm5.8 15.7c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7a.6.6 0 0 0 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.9 1 3.9.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.4z"/></svg>
+          <span data-i18n="form.send">Enviar por WhatsApp</span>
+        </button>
+        <p class="fine" data-i18n="form.fine">Te responderemos con disponibilidad y tarifa. Tu reserva se confirma por WhatsApp.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION ============ -->
+  <section class="section location" id="location">
+    <div class="wrap loc-grid">
+      <div class="reveal">
+        <p class="kicker" data-i18n="loc.kicker">Ubicación</p>
+        <h2 class="display" data-i18n-html="loc.title">El Paredón, <em>Guatemala</em></h2>
+        <p data-i18n="loc.text">En la costa del Pacífico, departamento de Escuintla. Escríbenos y te enviamos la ubicación exacta y cómo llegar.</p>
+        <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=El+Paredon+Buena+Vista+Escuintla+Guatemala" target="_blank" rel="noopener" data-i18n="loc.open">Abrir en Google Maps</a>
+      </div>
+      <div class="map reveal">
+        <iframe title="Mapa El Paredón" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=El+Paredon+Buena+Vista,+Escuintla,+Guatemala&z=13&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot">
+<a href="#top" class="brand brand-foot"><img src="img/logo-full-light.png" alt="Coco Beach El Paredón" width="342" height="287"></a>
+    <p class="foot-tag" data-i18n="foot.tag">Villa privada · El Paredón, Guatemala</p>
+    <a class="foot-wa" href="https://wa.me/50239995950" target="_blank" rel="noopener">WhatsApp +502 3999 5950</a>
+    <p class="foot-copy">© <span id="year"></span> Coco Beach</p>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/50239995950" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7a.6.6 0 0 0 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.9 1 3.9.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Cerrar">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <img id="lbImg" alt="">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Siguiente">›</button>
+  <p class="lb-count" id="lbCount"></p>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

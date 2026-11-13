@@ -147,6 +147,7 @@ ul.dots li::before{content:"";position:absolute;left:4px;top:15px;width:7px;heig
 .note{display:flex;gap:10px;align-items:flex-start;background:rgba(47,199,192,.1);border-radius:14px;padding:12px 14px;font-size:12.5px;line-height:1.55;color:var(--sea-deep);margin-top:10px}
 .note svg.i{width:18px;height:18px;margin-top:1px}
 .note.warn{background:rgba(255,111,79,.1);color:#b4472e}
+.note[hidden]{display:none}
 .photo{border-radius:20px;overflow:hidden;margin-bottom:10px;aspect-ratio:16/9;background:var(--sand2)}
 .photo img{width:100%;height:100%;object-fit:cover;display:block}
 .host{display:flex;align-items:center;gap:14px;margin-bottom:6px}
@@ -202,6 +203,8 @@ footer img{width:150px;height:auto;opacity:.85;display:block;margin:6px auto 16p
 .dark .note{background:rgba(47,199,192,.12);color:var(--sea)}
 .dark .note.warn{background:rgba(255,111,79,.14);color:#ffb4a3}
 .cartbar{position:fixed;left:50%;transform:translateX(-50%);bottom:max(16px,env(safe-area-inset-bottom));width:calc(100% - 32px);max-width:448px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-radius:18px;background:var(--ink);color:#fff;box-shadow:0 14px 36px rgba(12,27,32,.35);z-index:11;font-size:13px;font-weight:600}
+.cartbar .cnt{display:flex;align-items:center;gap:10px;text-align:left}
+.cartbar .cnt svg.i{width:20px;height:20px;color:var(--sea)}
 .cartbar small{display:block;font-size:10.5px;font-weight:500;color:rgba(255,255,255,.6)}
 .cartbar .go{display:flex;align-items:center;gap:6px;color:var(--sea)}
 .cartbar svg.i{width:16px;height:16px}
@@ -819,7 +822,7 @@ function fridgeHTML() {
   const unpriced = lines.some(p => p.price == null);
   const orderCard = lines.length ? `
     <div class="olines">${lines.map(p => `<div class="oline"><span>${cart[p.id]} × ${esc(p.n)}</span><span>${p.price != null ? money(p.price * cart[p.id]) : "—"}</span></div>`).join("")}</div>
-    <div class="ototal"><span>${t.total}</span><b>${money(total)}</b></div>
+    <div class="ototal"><span>${t.total}</span><b>${lines.some(p => p.price != null) ? money(total) : "—"}</b></div>
     ${unpriced ? `<div class="note">${ic("info")}<span>${t.noPrice}</span></div>` : ""}
     <div class="ofields"><div><label for="fRoom">${t.room}</label><select id="fRoom"><option value="">${t.pick}</option>${ROOMS.map(r => `<option${r === order.room ? " selected" : ""}>${r}</option>`).join("")}</select></div>
       <div><label for="fName">${t.name}</label><input id="fName" type="text" autocomplete="given-name" maxlength="40" value="${esc(order.name)}"></div></div>
@@ -840,7 +843,7 @@ function renderCartBar() {
   let bar = document.getElementById("cartbar");
   if (!n || current !== "fridge") { if (bar) bar.remove(); document.body.classList.remove("has-cart"); return; }
   if (!bar) { bar = document.createElement("button"); bar.id = "cartbar"; bar.className = "cartbar"; bar.type = "button"; document.body.appendChild(bar); }
-  bar.innerHTML = `<span>${n} ${t.items} · ${money(total)}<small>${t.order}</small></span><span class="go">${t.view}${ic("arrow")}</span>`;
+  bar.innerHTML = `<span class="cnt">${ic("cart")}<span>${n}${lines.some(p => p.price != null) ? " · " + money(total) : ""}<small>${t.order}</small></span></span><span class="go">${t.view}${ic("arrow")}</span>`;
   document.body.classList.add("has-cart");
 }
 

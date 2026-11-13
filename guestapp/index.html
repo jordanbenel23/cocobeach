@@ -162,6 +162,50 @@ footer{text-align:center;padding:24px 20px 104px;font-size:9.5px;letter-spacing:
 footer img{width:150px;height:auto;opacity:.85;display:block;margin:6px auto 16px;transform:translateX(8.5%)}
 .fab{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));right:max(18px,calc(50vw - 222px));width:56px;height:56px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 10px 30px rgba(12,27,32,.28);z-index:10}
 .fab svg{width:28px;height:28px;fill:#fff}
+/* fridge */
+.tile.wide{grid-column:1/-1;flex-direction:row;justify-content:center;gap:12px;padding:12px;background:linear-gradient(120deg,var(--paper),#fff);border-color:rgba(47,199,192,.35)}
+.tile.wide .ic{background:rgba(47,199,192,.14)}
+.tile.wide span{font-size:12px;color:var(--ink)}
+.tile.wide.on{background:var(--ink);border-color:var(--ink)}
+.tile.wide.on span{color:#fff}
+.fcat{font-size:9px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:20px 4px 10px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.prod{background:var(--paper);border-radius:18px;padding:10px 10px 12px;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(12,27,32,.04);border:1.5px solid transparent;transition:border-color .2s}
+.prod.sel{border-color:var(--sea)}
+.prod.off{opacity:.5}
+.pimg{aspect-ratio:1/1;border-radius:13px;background:var(--sand);display:grid;place-items:center;overflow:hidden;margin-bottom:9px;color:var(--sea-deep)}
+.pimg img{width:84%;height:84%;object-fit:contain;display:block}
+.pimg svg.i{width:34px;height:34px;opacity:.55}
+.prod b{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.3}
+.prod small{font-size:10.5px;color:var(--muted);margin-top:2px}
+.pfoot{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:auto;padding-top:9px}
+.price{font-family:var(--serif);font-size:18px;color:var(--ink)}
+.price.ask{font-family:var(--sans);font-size:10px;color:var(--muted)}
+.left{font-size:9.5px;font-weight:600;letter-spacing:.06em;color:var(--sea-deep);margin-top:4px}
+.left.out{color:var(--coral)}
+.step{display:flex;align-items:center;gap:2px;background:var(--sand);border-radius:20px;padding:2px}
+.step button{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:var(--ink)}
+.step button.add{background:var(--ink);color:#fff}
+.step button:disabled{opacity:.3}
+.step svg.i{width:15px;height:15px;stroke-width:2}
+.step em{font-style:normal;font-size:12.5px;font-weight:600;min-width:16px;text-align:center}
+.olines{margin:4px 0 12px}
+.oline{display:flex;justify-content:space-between;gap:10px;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.85)}
+.ototal{display:flex;justify-content:space-between;align-items:baseline;padding-top:10px}
+.ototal b{font-family:var(--serif);font-weight:300;font-size:28px;color:#fff}
+.ototal span{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.ofields{display:grid;grid-template-columns:.9fr 1.4fr;gap:8px;margin-top:14px}
+.ofields label{display:block;font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:5px}
+.ofields select,.ofields input{width:100%;font:inherit;font-size:14px;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:11px 12px;outline:none;-webkit-appearance:none;appearance:none}
+.ofields select:focus,.ofields input:focus{border-color:var(--sea)}
+.ofields select option{color:var(--ink)}
+.dark .note{background:rgba(47,199,192,.12);color:var(--sea)}
+.dark .note.warn{background:rgba(255,111,79,.14);color:#ffb4a3}
+.cartbar{position:fixed;left:50%;transform:translateX(-50%);bottom:max(16px,env(safe-area-inset-bottom));width:calc(100% - 32px);max-width:448px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-radius:18px;background:var(--ink);color:#fff;box-shadow:0 14px 36px rgba(12,27,32,.35);z-index:11;font-size:13px;font-weight:600}
+.cartbar small{display:block;font-size:10.5px;font-weight:500;color:rgba(255,255,255,.6)}
+.cartbar .go{display:flex;align-items:center;gap:6px;color:var(--sea)}
+.cartbar svg.i{width:16px;height:16px}
+body.has-cart .fab{display:none}
 @media (max-width:360px){.title{font-size:31px}.chip b{font-size:17px}.tile span{font-size:9.5px}}
 @media (prefers-reduced-motion:reduce){.sec{animation:none}}
 </style>
@@ -251,6 +295,10 @@ footer img{width:150px;height:auto;opacity:.85;display:block;margin:6px auto 16p
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></symbol>
   <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 4 2.5 20h19L12 4Z"/><path d="M12 10v4.5M12 17.2v.2"/></symbol>
+  <symbol id="i-fridge" viewBox="0 0 24 24"><rect x="5.5" y="2.5" width="13" height="19" rx="2.5"/><path d="M5.5 9.5h13M8.5 5.5v2M8.5 12.5v3.5"/></symbol>
+  <symbol id="i-bottle" viewBox="0 0 24 24"><path d="M10 2.5h4M10.5 2.5v3.2c0 .8-.4 1.4-1 2-1.2 1-2 2.3-2 3.8V20a1.5 1.5 0 0 0 1.5 1.5h6a1.5 1.5 0 0 0 1.5-1.5v-8.5c0-1.5-.8-2.8-2-3.8-.6-.6-1-1.2-1-2V2.5"/><path d="M7.5 13h9"/></symbol>
+  <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12h12"/></symbol>
+  <symbol id="i-add" viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.8L4 20Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2L9 9.5Z"/></symbol>
 </svg>
 
@@ -288,15 +336,36 @@ const SOS = [
 ];
 const NAV = [
   ["arrive","key"],["wifi","wifi"],["rules","rules"],["night","moon"],["amen","palm"],["house","home"],
-  ["surf","wave"],["act","compass"],["food","food"],["local","pin"],["ride","car"],["contact","chat"]
+  ["surf","wave"],["act","compass"],["food","food"],["local","pin"],["ride","car"],["contact","chat"],["fridge","fridge"]
 ];
+/* Nevera: los precios y cantidades se leen del Google Sheets.
+   Si no se puede leer (sin conexión o sin compartir), se usa esta lista. */
+const SHEET = "113B60rEB3dyVw-sRrLlBId0KyRdi6N1pXmxNOoB9ya8";
+const ROOMS = ["1","2","3","4","5","6"];
+const FRIDGE_DEFAULT = [
+  ["coca-cola","Refrescos","Coca-Cola","450 ml"],["coca-cola-zero","Refrescos","Coca-Cola Zero","355 ml"],
+  ["canada-dry-ginger-ale","Refrescos","Canada Dry Ginger Ale","350 ml · lata"],["canada-dry-tonica","Refrescos","Canada Dry Agua Tónica","350 ml · lata"],
+  ["lipton","Té","Lipton Ice Tea","500 ml"],["lipton-limon","Té","Lipton Ice Tea Limón","500 ml"],
+  ["gatorade-limon","Isotónicos","Gatorade Limón","600 ml"],["gatorade-uva","Isotónicos","Gatorade Uva","600 ml"],
+  ["gatorade-fruit-punch","Isotónicos","Gatorade Fruit Punch","600 ml"],["gatorade-naranja","Isotónicos","Gatorade Naranja","600 ml"],
+  ["hidravida-lima-limon","Isotónicos","Hidravida Lima Limón","625 ml"],["hidravida-fresa-kiwi","Isotónicos","Hidravida Fresa Kiwi","625 ml"],
+  ["hidravida-maracuya","Isotónicos","Hidravida Maracuyá","625 ml"],["hidravida-fresa","Isotónicos","Hidravida Fresa","625 ml"],
+  ["v8-orange-carrot","Jugos","V8 Splash Orange Carrot","473 ml"],["v8-berry-blend","Jugos","V8 Splash Berry Blend","473 ml"],
+  ["v8-strawberry-kiwi","Jugos","V8 Splash Strawberry Kiwi","473 ml"],
+  ["salutaris","Agua","Salutaris Agua Mineral","600 ml"],["salvavidas","Agua","Agua Pura Salvavidas","600 ml"],["shangri-la","Agua","Shangri-La Agua Mineral","354 ml · lata"],
+  ["coco","Coco","Coco natural","1 unidad"],["sauvignon-blanc","Vino","Sauvignon Blanc","187.5 ml"],
+  ["heineken-00","Cerveza","Heineken 0.0 (sin alcohol)","330 ml"],["corona","Cerveza","Corona","355 ml"],
+  ["gallo","Cerveza","Gallo","350 ml"],["dorada-draft","Cerveza","Dorada Draft","350 ml"]
+].map(([id, cat, n, size]) => ({ id, cat, n, size, price: null, qty: null }));
+const CAT_KEYS = { refrescos:"soda", refresco:"soda", te:"tea", "te frio":"tea", isotonicos:"sport", isotonico:"sport", jugos:"juice", jugo:"juice", agua:"water", aguas:"water", coco:"coco", cocos:"coco", vino:"wine", vinos:"wine", cerveza:"beer", cervezas:"beer" };
+let fridge = FRIDGE_DEFAULT, cart = {}, order = { room: "", name: "" };
 const LANGS = ["es","en","pt","fr","de","nl","ru"];
 
 const T = {
 es:{
   hero:{eyebrow:"El Paredón · Guatemala",pre:"Bienvenidos",tag:"Hotel boutique de surf y bienestar, a un minuto del Pacífico. Todo lo que necesitas para tu estancia, en un solo lugar."},
   strip:{in:"Check-in",out:"Check-out",wifi:"Copiar clave"},
-  nav:{arrive:"Llegada",wifi:"WiFi",rules:"Normas",night:"Noche",amen:"Amenidades",house:"La casa",surf:"Surf",act:"Actividades",food:"Restaurantes",local:"Guía local",ride:"Transporte",contact:"Contacto"},
+  nav:{arrive:"Llegada",wifi:"WiFi",rules:"Normas",night:"Noche",amen:"Amenidades",house:"La casa",surf:"Surf",act:"Actividades",food:"Restaurantes",local:"Guía local",ride:"Transporte",contact:"Contacto",fridge:"Nevera"},
   arrive:{h:"Tu <em>llegada</em>",sub:"Check-in, parking y cómo encontrarnos",box:"Horario",ci:"Check-in",co:"Check-out",
     recep:"Te recibimos en persona",recepD:"Nuestro personal te da la bienvenida y te entrega el acceso. Avísanos por WhatsApp a qué hora llegas y nos adaptamos a tu horario.",
     park:"Parking privado",parkD:"Hay espacio para aparcar dentro de la propiedad.",
@@ -333,6 +402,7 @@ es:{
     yoan:"Yoan · Chofer privado",yoanD:"Nuestro conductor de confianza. Transporte privado por todo el país y turismo bilingüe en francés y español. Reserva con antelación por WhatsApp.",
     wa:"WhatsApp",ig:"Instagram y Facebook",msg:"Hola Yoan, soy huésped de Coco Beach. Necesito transporte desde ___ hasta ___ el día ___.",
     sh:"Shuttle compartido",shD:"Es la opción más económica desde Antigua (unas 2 horas). Escríbenos y te ayudamos a reservarlo.",shBtn:"Pedir ayuda con el shuttle",shMsg:"Hola, ¿me ayudan a reservar un shuttle compartido a Coco Beach?"},
+  fridge:{h:"La <em>nevera</em>",sub:"Bebidas frías siempre a mano",how:"Cómo funciona",steps:["Coge lo que quieras de la nevera.", "Márcalo aquí con el botón + y envíanos el WhatsApp.", "Te lo cobramos al final de tu estancia, con tarjeta o en efectivo."],left:"Quedan {n}",out:"Agotado",ask:"Consultar precio",order:"Tu pedido",room:"Habitación",pick:"Elige",name:"Tu nombre (opcional)",total:"Total",send:"Enviar por WhatsApp",empty:"Añade con el botón + lo que has cogido.",need:"Elige tu habitación para enviar el pedido.",sent:"¡Gracias! Lo apuntamos a tu cuenta.",items:"productos",view:"Ver pedido",noPrice:"Algunos productos aún no tienen precio: te lo confirmamos.",cats:{"soda": "Refrescos", "tea": "Té frío", "sport": "Isotónicos", "juice": "Jugos", "water": "Agua", "coco": "Coco", "wine": "Vino", "beer": "Cerveza"}},
   contact:{h:"<em>Contacto</em>",sub:"Estamos cerca, escríbenos 24/7",host:"Tu anfitrión · Coco Beach",
     hostD:"Recomendaciones, transporte, tours o cualquier duda: respondemos rápido.",wa:"Escribir por WhatsApp",ig:"Síguenos en Instagram",
     rev:"¿Disfrutaste tu estancia?",revD:"Tu reseña nos ayuda muchísimo. Gracias por elegir Coco Beach.",map:"Ubicación"}
@@ -340,7 +410,7 @@ es:{
 en:{
   hero:{eyebrow:"El Paredón · Guatemala",pre:"Welcome",tag:"A boutique surf and wellness hotel, one minute from the Pacific. Everything you need for your stay, in one place."},
   strip:{in:"Check-in",out:"Check-out",wifi:"Copy password"},
-  nav:{arrive:"Arrival",wifi:"WiFi",rules:"House rules",night:"Night",amen:"Amenities",house:"The house",surf:"Surf",act:"Activities",food:"Restaurants",local:"Local guide",ride:"Transport",contact:"Contact"},
+  nav:{arrive:"Arrival",wifi:"WiFi",rules:"House rules",night:"Night",amen:"Amenities",house:"The house",surf:"Surf",act:"Activities",food:"Restaurants",local:"Local guide",ride:"Transport",contact:"Contact",fridge:"Fridge"},
   arrive:{h:"Your <em>arrival</em>",sub:"Check-in, parking and how to find us",box:"Schedule",ci:"Check-in",co:"Check-out",
     recep:"We welcome you in person",recepD:"Our staff will greet you and hand over your access. Let us know your arrival time on WhatsApp and we'll adapt to your schedule.",
     park:"Private parking",parkD:"There's parking space inside the property.",
@@ -377,6 +447,7 @@ en:{
     yoan:"Yoan · Private driver",yoanD:"Our trusted driver. Private transport across the whole country and bilingual tours in French and Spanish. Book ahead on WhatsApp.",
     wa:"WhatsApp",ig:"Instagram and Facebook",msg:"Hi Yoan, I'm a guest at Coco Beach. I need a ride from ___ to ___ on ___.",
     sh:"Shared shuttle",shD:"The most affordable option from Antigua (about 2 hours). Message us and we'll help you book it.",shBtn:"Get help with a shuttle",shMsg:"Hi, could you help me book a shared shuttle to Coco Beach?"},
+  fridge:{h:"The <em>fridge</em>",sub:"Cold drinks always at hand",how:"How it works",steps:["Grab whatever you like from the fridge.", "Mark it here with the + button and send us the WhatsApp.", "We'll charge it at the end of your stay, by card or cash."],left:"{n} left",out:"Sold out",ask:"Ask for price",order:"Your order",room:"Room",pick:"Choose",name:"Your name (optional)",total:"Total",send:"Send on WhatsApp",empty:"Use the + button to add what you took.",need:"Choose your room to send the order.",sent:"Thank you! We've added it to your bill.",items:"items",view:"View order",noPrice:"Some items don't have a price yet: we'll confirm it.",cats:{"soda": "Soft drinks", "tea": "Iced tea", "sport": "Sports drinks", "juice": "Juices", "water": "Water", "coco": "Coconut", "wine": "Wine", "beer": "Beer"}},
   contact:{h:"<em>Contact</em>",sub:"We're close by, message us 24/7",host:"Your host · Coco Beach",
     hostD:"Tips, transport, tours or any questions: we reply fast.",wa:"Message on WhatsApp",ig:"Follow us on Instagram",
     rev:"Enjoyed your stay?",revD:"Your review helps us so much. Thank you for choosing Coco Beach.",map:"Location"}
@@ -384,7 +455,7 @@ en:{
 fr:{
   hero:{eyebrow:"El Paredón · Guatemala",pre:"Bienvenue",tag:"Un hôtel boutique surf et bien-être, à une minute du Pacifique. Tout ce qu'il vous faut pour votre séjour, au même endroit."},
   strip:{in:"Arrivée",out:"Départ",wifi:"Copier le code"},
-  nav:{arrive:"Arrivée",wifi:"WiFi",rules:"Règles",night:"La nuit",amen:"Équipements",house:"La maison",surf:"Surf",act:"Activités",food:"Restaurants",local:"Guide local",ride:"Transport",contact:"Contact"},
+  nav:{arrive:"Arrivée",wifi:"WiFi",rules:"Règles",night:"La nuit",amen:"Équipements",house:"La maison",surf:"Surf",act:"Activités",food:"Restaurants",local:"Guide local",ride:"Transport",contact:"Contact",fridge:"Frigo"},
   arrive:{h:"Votre <em>arrivée</em>",sub:"Check-in, parking et comment nous trouver",box:"Horaires",ci:"Arrivée",co:"Départ",
     recep:"Accueil en personne",recepD:"Notre équipe vous accueille et vous remet votre accès. Indiquez-nous votre heure d'arrivée sur WhatsApp et nous nous adaptons.",
     park:"Parking privé",parkD:"Places de stationnement à l'intérieur de la propriété.",
@@ -421,6 +492,7 @@ fr:{
     yoan:"Yoan · Chauffeur privé",yoanD:"Notre chauffeur de confiance. Transport privé dans tout le pays et tourisme bilingue français-espagnol. Réservez à l'avance sur WhatsApp.",
     wa:"WhatsApp",ig:"Instagram et Facebook",msg:"Bonjour Yoan, je suis client de Coco Beach. J'ai besoin d'un transport de ___ à ___ le ___.",
     sh:"Navette partagée",shD:"L'option la plus économique depuis Antigua (environ 2 heures). Écrivez-nous, nous vous aidons à réserver.",shBtn:"Aide pour la navette",shMsg:"Bonjour, pouvez-vous m'aider à réserver une navette partagée pour Coco Beach ?"},
+  fridge:{h:"Le <em>frigo</em>",sub:"Boissons fraîches toujours à portée de main",how:"Comment ça marche",steps:["Servez-vous dans le frigo.", "Indiquez-le ici avec le bouton + et envoyez-nous le WhatsApp.", "Nous le réglons à la fin de votre séjour, par carte ou en espèces."],left:"Plus que {n}",out:"Épuisé",ask:"Prix sur demande",order:"Votre commande",room:"Chambre",pick:"Choisir",name:"Votre prénom (facultatif)",total:"Total",send:"Envoyer sur WhatsApp",empty:"Ajoutez avec le bouton + ce que vous avez pris.",need:"Choisissez votre chambre pour envoyer la commande.",sent:"Merci ! C'est noté sur votre compte.",items:"articles",view:"Voir la commande",noPrice:"Certains articles n'ont pas encore de prix : nous vous le confirmerons.",cats:{"soda": "Sodas", "tea": "Thé glacé", "sport": "Boissons isotoniques", "juice": "Jus", "water": "Eau", "coco": "Noix de coco", "wine": "Vin", "beer": "Bière"}},
   contact:{h:"<em>Contact</em>",sub:"Nous sommes tout près, écrivez-nous 24h/24",host:"Votre hôte · Coco Beach",
     hostD:"Conseils, transport, excursions ou questions : nous répondons vite.",wa:"Écrire sur WhatsApp",ig:"Suivez-nous sur Instagram",
     rev:"Vous avez aimé votre séjour ?",revD:"Votre avis nous aide énormément. Merci d'avoir choisi Coco Beach.",map:"Localisation"}
@@ -428,7 +500,7 @@ fr:{
 de:{
   hero:{eyebrow:"El Paredón · Guatemala",pre:"Willkommen",tag:"Ein Boutique-Surf- und Wellnesshotel, eine Minute vom Pazifik. Alles für deinen Aufenthalt an einem Ort."},
   strip:{in:"Check-in",out:"Check-out",wifi:"Passwort kopieren"},
-  nav:{arrive:"Ankunft",wifi:"WLAN",rules:"Hausregeln",night:"Nachts",amen:"Ausstattung",house:"Das Haus",surf:"Surfen",act:"Aktivitäten",food:"Restaurants",local:"Lokalführer",ride:"Transport",contact:"Kontakt"},
+  nav:{arrive:"Ankunft",wifi:"WLAN",rules:"Hausregeln",night:"Nachts",amen:"Ausstattung",house:"Das Haus",surf:"Surfen",act:"Aktivitäten",food:"Restaurants",local:"Lokalführer",ride:"Transport",contact:"Kontakt",fridge:"Kühlschrank"},
   arrive:{h:"Deine <em>Ankunft</em>",sub:"Check-in, Parken und Anfahrt",box:"Zeiten",ci:"Check-in",co:"Check-out",
     recep:"Persönlicher Empfang",recepD:"Unser Team empfängt dich und übergibt dir den Zugang. Sag uns per WhatsApp, wann du ankommst, und wir richten uns danach.",
     park:"Privatparkplatz",parkD:"Parkplätze gibt es direkt auf dem Grundstück.",
@@ -465,6 +537,7 @@ de:{
     yoan:"Yoan · Privatfahrer",yoanD:"Unser Fahrer des Vertrauens. Privattransport im ganzen Land und zweisprachige Touren auf Französisch und Spanisch. Bitte rechtzeitig per WhatsApp buchen.",
     wa:"WhatsApp",ig:"Instagram und Facebook",msg:"Hallo Yoan, ich bin Gast im Coco Beach. Ich brauche eine Fahrt von ___ nach ___ am ___.",
     sh:"Shuttle (geteilt)",shD:"Die günstigste Option ab Antigua (ca. 2 Stunden). Schreib uns, wir helfen dir bei der Buchung.",shBtn:"Hilfe beim Shuttle",shMsg:"Hallo, könnt ihr mir helfen, ein Shuttle zum Coco Beach zu buchen?"},
+  fridge:{h:"Der <em>Kühlschrank</em>",sub:"Kalte Getränke immer griffbereit",how:"So funktioniert's",steps:["Nimm dir aus dem Kühlschrank, was du möchtest.", "Markiere es hier mit dem +-Button und schick uns die WhatsApp.", "Wir rechnen am Ende deines Aufenthalts ab, per Karte oder bar."],left:"Noch {n}",out:"Ausverkauft",ask:"Preis auf Anfrage",order:"Deine Bestellung",room:"Zimmer",pick:"Wählen",name:"Dein Name (optional)",total:"Summe",send:"Per WhatsApp senden",empty:"Füge mit dem +-Button hinzu, was du genommen hast.",need:"Wähle dein Zimmer, um die Bestellung zu senden.",sent:"Danke! Wir haben es auf deine Rechnung gesetzt.",items:"Artikel",view:"Bestellung ansehen",noPrice:"Manche Artikel haben noch keinen Preis: wir bestätigen ihn dir.",cats:{"soda": "Softdrinks", "tea": "Eistee", "sport": "Sportgetränke", "juice": "Säfte", "water": "Wasser", "coco": "Kokosnuss", "wine": "Wein", "beer": "Bier"}},
   contact:{h:"<em>Kontakt</em>",sub:"Wir sind in der Nähe, schreib uns rund um die Uhr",host:"Dein Gastgeber · Coco Beach",
     hostD:"Tipps, Transport, Touren oder Fragen: Wir antworten schnell.",wa:"Per WhatsApp schreiben",ig:"Folge uns auf Instagram",
     rev:"Hat dir dein Aufenthalt gefallen?",revD:"Deine Bewertung hilft uns sehr. Danke, dass du Coco Beach gewählt hast.",map:"Lage"}
@@ -472,7 +545,7 @@ de:{
 ru:{
   hero:{eyebrow:"Эль-Паредон · Гватемала",pre:"Добро пожаловать",tag:"Бутик-отель для сёрфинга и отдыха в минуте от Тихого океана. Всё, что нужно для вашего пребывания, в одном месте."},
   strip:{in:"Заезд",out:"Выезд",wifi:"Копировать пароль"},
-  nav:{arrive:"Заезд",wifi:"Wi-Fi",rules:"Правила",night:"Ночью",amen:"Удобства",house:"Дом",surf:"Сёрфинг",act:"Досуг",food:"Рестораны",local:"Гид",ride:"Транспорт",contact:"Контакты"},
+  nav:{arrive:"Заезд",wifi:"Wi-Fi",rules:"Правила",night:"Ночью",amen:"Удобства",house:"Дом",surf:"Сёрфинг",act:"Досуг",food:"Рестораны",local:"Гид",ride:"Транспорт",contact:"Контакты",fridge:"Холодильник"},
   arrive:{h:"Ваш <em>заезд</em>",sub:"Заезд, парковка и как нас найти",box:"Время",ci:"Заезд",co:"Выезд",
     recep:"Встречаем лично",recepD:"Наш персонал встретит вас и выдаст доступ. Сообщите время прибытия в WhatsApp, и мы подстроимся под вас.",
     park:"Частная парковка",parkD:"Парковка есть на территории отеля.",
@@ -509,6 +582,7 @@ ru:{
     yoan:"Йоан · Частный водитель",yoanD:"Наш проверенный водитель. Частные трансферы по всей стране и экскурсии на французском и испанском. Бронируйте заранее в WhatsApp.",
     wa:"WhatsApp",ig:"Instagram и Facebook",msg:"Здравствуйте, Йоан, я гость Coco Beach. Нужен трансфер из ___ в ___ ___.",
     sh:"Общий шаттл",shD:"Самый бюджетный вариант из Антигуа (около 2 часов). Напишите нам, и мы поможем забронировать.",shBtn:"Помощь с шаттлом",shMsg:"Здравствуйте, помогите, пожалуйста, забронировать шаттл до Coco Beach."},
+  fridge:{h:"<em>Холодильник</em>",sub:"Холодные напитки всегда под рукой",how:"Как это работает",steps:["Берите из холодильника всё, что хотите.", "Отметьте это здесь кнопкой + и отправьте нам сообщение в WhatsApp.", "Оплата в конце проживания — картой или наличными."],left:"Осталось {n}",out:"Нет в наличии",ask:"Цена по запросу",order:"Ваш заказ",room:"Номер",pick:"Выбрать",name:"Ваше имя (необязательно)",total:"Итого",send:"Отправить в WhatsApp",empty:"Добавьте кнопкой + то, что вы взяли.",need:"Выберите номер, чтобы отправить заказ.",sent:"Спасибо! Мы добавили это к вашему счёту.",items:"шт.",view:"Посмотреть заказ",noPrice:"У некоторых товаров ещё нет цены — мы её уточним.",cats:{"soda": "Газировка", "tea": "Холодный чай", "sport": "Изотоники", "juice": "Соки", "water": "Вода", "coco": "Кокос", "wine": "Вино", "beer": "Пиво"}},
   contact:{h:"<em>Контакты</em>",sub:"Мы рядом, пишите 24/7",host:"Ваш хозяин · Coco Beach",
     hostD:"Советы, транспорт, туры или вопросы: отвечаем быстро.",wa:"Написать в WhatsApp",ig:"Мы в Instagram",
     rev:"Понравилось у нас?",revD:"Ваш отзыв очень нам помогает. Спасибо, что выбрали Coco Beach.",map:"Расположение"}
@@ -516,7 +590,7 @@ ru:{
 pt:{
   hero:{eyebrow:"El Paredón · Guatemala",pre:"Bem-vindos",tag:"Hotel boutique de surf e bem-estar, a um minuto do Pacífico. Tudo o que você precisa para a sua estadia, num só lugar."},
   strip:{in:"Check-in",out:"Check-out",wifi:"Copiar senha"},
-  nav:{arrive:"Chegada",wifi:"WiFi",rules:"Regras",night:"Noite",amen:"Comodidades",house:"A casa",surf:"Surf",act:"Atividades",food:"Restaurantes",local:"Guia local",ride:"Transporte",contact:"Contato"},
+  nav:{arrive:"Chegada",wifi:"WiFi",rules:"Regras",night:"Noite",amen:"Comodidades",house:"A casa",surf:"Surf",act:"Atividades",food:"Restaurantes",local:"Guia local",ride:"Transporte",contact:"Contato",fridge:"Geladeira"},
   arrive:{h:"A sua <em>chegada</em>",sub:"Check-in, estacionamento e como nos encontrar",box:"Horário",ci:"Check-in",co:"Check-out",
     recep:"Recebemos você pessoalmente",recepD:"A nossa equipe dá as boas-vindas e entrega o seu acesso. Avise-nos pelo WhatsApp a que horas chega e adaptamo-nos ao seu horário.",
     park:"Estacionamento privado",parkD:"Há espaço para estacionar dentro da propriedade.",
@@ -553,6 +627,7 @@ pt:{
     yoan:"Yoan · Motorista privado",yoanD:"O nosso motorista de confiança. Transporte privado por todo o país e turismo bilíngue em francês e espanhol. Reserve com antecedência pelo WhatsApp.",
     wa:"WhatsApp",ig:"Instagram e Facebook",msg:"Olá Yoan, sou hóspede do Coco Beach. Preciso de transporte de ___ até ___ no dia ___.",
     sh:"Shuttle partilhado",shD:"É a opção mais econômica a partir de Antigua (cerca de 2 horas). Escreva-nos e ajudamos a reservar.",shBtn:"Pedir ajuda com o shuttle",shMsg:"Olá, podem ajudar-me a reservar um shuttle partilhado até o Coco Beach?"},
+  fridge:{h:"A <em>geladeira</em>",sub:"Bebidas geladas sempre à mão",how:"Como funciona",steps:["Pegue o que quiser da geladeira.", "Marque aqui com o botão + e envie-nos o WhatsApp.", "Cobramos no final da sua estadia, com cartão ou em dinheiro."],left:"Restam {n}",out:"Esgotado",ask:"Consultar preço",order:"O seu pedido",room:"Quarto",pick:"Escolha",name:"O seu nome (opcional)",total:"Total",send:"Enviar pelo WhatsApp",empty:"Adicione com o botão + o que pegou.",need:"Escolha o seu quarto para enviar o pedido.",sent:"Obrigado! Já anotamos na sua conta.",items:"itens",view:"Ver pedido",noPrice:"Alguns produtos ainda não têm preço: confirmamos depois.",cats:{"soda": "Refrigerantes", "tea": "Chá gelado", "sport": "Isotônicos", "juice": "Sucos", "water": "Água", "coco": "Coco", "wine": "Vinho", "beer": "Cerveja"}},
   contact:{h:"<em>Contato</em>",sub:"Estamos por perto, escreva-nos 24/7",host:"O seu anfitrião · Coco Beach",
     hostD:"Recomendações, transporte, passeios ou qualquer dúvida: respondemos rápido.",wa:"Escrever pelo WhatsApp",ig:"Siga-nos no Instagram",
     rev:"Gostou da sua estadia?",revD:"A sua avaliação ajuda-nos muito. Obrigado por escolher o Coco Beach.",map:"Localização"}
@@ -560,7 +635,7 @@ pt:{
 nl:{
   hero:{eyebrow:"El Paredón · Guatemala",pre:"Welkom",tag:"Boutique surf- en wellnesshotel, op één minuut van de Stille Oceaan. Alles wat je nodig hebt voor je verblijf, op één plek."},
   strip:{in:"Inchecken",out:"Uitchecken",wifi:"Wachtwoord kopiëren"},
-  nav:{arrive:"Aankomst",wifi:"WiFi",rules:"Huisregels",night:"Nacht",amen:"Voorzieningen",house:"Het huis",surf:"Surf",act:"Activiteiten",food:"Restaurants",local:"Lokale gids",ride:"Vervoer",contact:"Contact"},
+  nav:{arrive:"Aankomst",wifi:"WiFi",rules:"Huisregels",night:"Nacht",amen:"Voorzieningen",house:"Het huis",surf:"Surf",act:"Activiteiten",food:"Restaurants",local:"Lokale gids",ride:"Vervoer",contact:"Contact",fridge:"Koelkast"},
   arrive:{h:"Je <em>aankomst</em>",sub:"Inchecken, parkeren en hoe je ons vindt",box:"Tijden",ci:"Inchecken",co:"Uitchecken",
     recep:"We verwelkomen je persoonlijk",recepD:"Ons team heet je welkom en geeft je de toegang. Laat ons via WhatsApp weten hoe laat je aankomt, dan passen we ons aan.",
     park:"Privéparkeerplaats",parkD:"Er is parkeerruimte op het terrein.",
@@ -597,6 +672,7 @@ nl:{
     yoan:"Yoan · Privéchauffeur",yoanD:"Onze vertrouwde chauffeur. Privévervoer door het hele land en tweetalige tours in het Frans en Spaans. Boek vooraf via WhatsApp.",
     wa:"WhatsApp",ig:"Instagram en Facebook",msg:"Hallo Yoan, ik ben gast bij Coco Beach. Ik heb vervoer nodig van ___ naar ___ op ___.",
     sh:"Gedeelde shuttle",shD:"De voordeligste optie vanuit Antigua (ongeveer 2 uur). Stuur ons een bericht en we helpen je met boeken.",shBtn:"Hulp vragen met de shuttle",shMsg:"Hallo, kunnen jullie me helpen een gedeelde shuttle naar Coco Beach te boeken?"},
+  fridge:{h:"De <em>koelkast</em>",sub:"Koude drankjes altijd bij de hand",how:"Zo werkt het",steps:["Pak wat je wilt uit de koelkast.", "Geef het hier aan met de +-knop en stuur ons de WhatsApp.", "We rekenen af aan het einde van je verblijf, met kaart of contant."],left:"Nog {n}",out:"Uitverkocht",ask:"Prijs op aanvraag",order:"Je bestelling",room:"Kamer",pick:"Kies",name:"Je naam (optioneel)",total:"Totaal",send:"Versturen via WhatsApp",empty:"Voeg met de +-knop toe wat je hebt gepakt.",need:"Kies je kamer om de bestelling te versturen.",sent:"Bedankt! We zetten het op je rekening.",items:"artikelen",view:"Bestelling bekijken",noPrice:"Sommige artikelen hebben nog geen prijs: we bevestigen die.",cats:{"soda": "Frisdrank", "tea": "IJsthee", "sport": "Sportdranken", "juice": "Sappen", "water": "Water", "coco": "Kokosnoot", "wine": "Wijn", "beer": "Bier"}},
   contact:{h:"<em>Contact</em>",sub:"We zijn dichtbij, stuur ons 24/7 een bericht",host:"Je gastheer · Coco Beach",
     hostD:"Tips, vervoer, tours of andere vragen: we reageren snel.",wa:"Stuur een WhatsApp",ig:"Volg ons op Instagram",
     rev:"Genoten van je verblijf?",revD:"Je review helpt ons enorm. Bedankt dat je voor Coco Beach hebt gekozen.",map:"Locatie"}
@@ -617,7 +693,7 @@ function render() {
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-t]").forEach(el => { el.textContent = get(el.dataset.t); });
   document.getElementById("langs").innerHTML = LANGS.map(l => `<button class="lang${l === lang ? " on" : ""}" data-l="${l}" type="button">${l.toUpperCase()}</button>`).join("");
-  document.getElementById("nav").innerHTML = NAV.map(([k, i]) => `<button class="tile${k === current ? " on" : ""}" data-s="${k}" type="button"><span class="ic">${ic(i)}</span><span>${t.nav[k]}</span></button>`).join("");
+  document.getElementById("nav").innerHTML = NAV.map(([k, i]) => `<button class="tile${k === "fridge" ? " wide" : ""}${k === current ? " on" : ""}" data-s="${k}" type="button"><span class="ic">${ic(i)}</span><span>${t.nav[k]}</span></button>`).join("");
 
   const a = t.arrive, w = t.wifi, r = t.rules, n = t.night, am = t.amen, hs = t.house, s = t.surf, ac = t.act, f = t.food, lo = t.local, ri = t.ride, c = t.contact;
   const S = {};
@@ -671,7 +747,121 @@ function render() {
       <div class="stars">${ic("star").repeat(5)}</div><p class="p" style="color:var(--muted)">${c.revD}</p>
       <div class="btns2" style="grid-template-columns:1fr 1fr 1fr"><a class="btn light" href="${REVIEW.google}" ${ext}>Google</a><a class="btn light" href="${REVIEW.airbnb}" ${ext}>Airbnb</a><a class="btn light" href="${REVIEW.booking}" ${ext}>Booking</a></div></div>`;
 
+  S.fridge = fridgeHTML();
   document.getElementById("main").innerHTML = NAV.map(([k]) => `<section class="sec${k === current ? " on" : ""}" id="s-${k}">${S[k]}</section>`).join("");
+  renderCartBar();
+}
+
+/* ---------- Nevera ---------- */
+const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+const money = v => "Q" + (Math.round(v * 100) / 100).toFixed(v % 1 ? 2 : 0);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const num = v => { const s = String(v || "").replace(/[^\d.,]/g, "").replace(",", "."); return s === "" || isNaN(+s) ? null : +s; };
+
+function parseCSV(text) {
+  const rows = []; let row = [], cell = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) { if (ch === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += ch; }
+    else if (ch === '"') q = true;
+    else if (ch === ",") { row.push(cell); cell = ""; }
+    else if (ch === "\n" || ch === "\r") { if (ch === "\r" && text[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+    else cell += ch;
+  }
+  if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+
+function fromSheet(text) {
+  const rows = parseCSV(text).filter(r => r.some(c => c.trim()));
+  if (rows.length < 2) return null;
+  const h = rows[0].map(norm), col = k => h.findIndex(x => x.startsWith(k));
+  const c = { id: col("id"), cat: col("categ"), n: col("producto"), size: col("tama"), price: col("precio"), qty: col("cantidad") };
+  if (c.n < 0) return null;
+  const list = rows.slice(1).map(r => ({
+    id: (c.id >= 0 && r[c.id].trim()) || norm(r[c.n]).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+    cat: c.cat >= 0 ? r[c.cat].trim() : "", n: r[c.n].trim(), size: c.size >= 0 ? r[c.size].trim() : "",
+    price: c.price >= 0 ? num(r[c.price]) : null, qty: c.qty >= 0 ? num(r[c.qty]) : null
+  })).filter(p => p.n);
+  return list.length ? list : null;
+}
+
+async function loadFridge() {
+  try { const c = JSON.parse(localStorage.getItem("cb-fridge") || "null"); if (Array.isArray(c) && c.length) fridge = c; } catch (_) {}
+  try { const o = JSON.parse(localStorage.getItem("cb-order") || "null"); if (o) order = { room: o.room || "", name: o.name || "" }; } catch (_) {}
+  try {
+    const r = await fetch(`https://docs.google.com/spreadsheets/d/${SHEET}/gviz/tq?tqx=out:csv&t=${Date.now()}`, { cache: "no-store" });
+    if (!r.ok) throw 0;
+    const list = fromSheet(await r.text());
+    if (list) { fridge = list; try { localStorage.setItem("cb-fridge", JSON.stringify(list)); } catch (_) {} }
+  } catch (_) {}
+  for (const id in cart) { const p = fridge.find(x => x.id === id); if (!p || p.qty === 0) delete cart[id]; else if (p.qty != null && cart[id] > p.qty) cart[id] = p.qty; }
+  renderFridge();
+}
+
+function fridgeHTML() {
+  const t = T[lang].fridge;
+  const groups = [];
+  fridge.forEach(p => { let g = groups.find(x => x.cat === p.cat); if (!g) groups.push(g = { cat: p.cat, items: [] }); g.items.push(p); });
+  const catName = c => t.cats[CAT_KEYS[norm(c)]] || c;
+  const card = p => {
+    const q = cart[p.id] || 0, out = p.qty === 0, max = p.qty == null ? 99 : p.qty;
+    return `<div class="prod${q ? " sel" : ""}${out ? " off" : ""}">
+      <div class="pimg"><img src="../img/nevera/${encodeURIComponent(p.id)}.png" alt="" loading="lazy" onerror="this.replaceWith(document.createRange().createContextualFragment('${ic("bottle").replace(/"/g, "&quot;")}'))"></div>
+      <b>${esc(p.n)}</b><small>${esc(p.size)}</small>
+      ${out ? `<span class="left out">${t.out}</span>` : (p.qty != null ? `<span class="left">${t.left.replace("{n}", p.qty)}</span>` : "")}
+      <div class="pfoot">${p.price != null ? `<span class="price">${money(p.price)}</span>` : `<span class="price ask">${t.ask}</span>`}
+        <div class="step">${q ? `<button type="button" data-dec="${esc(p.id)}" aria-label="−">${ic("minus")}</button><em>${q}</em>` : ""}<button class="add" type="button" data-inc="${esc(p.id)}" aria-label="+"${out || q >= max ? " disabled" : ""}>${ic("add")}</button></div></div>
+    </div>`;
+  };
+  const lines = fridge.filter(p => cart[p.id]);
+  const total = lines.reduce((s, p) => s + (p.price || 0) * cart[p.id], 0);
+  const unpriced = lines.some(p => p.price == null);
+  const orderCard = lines.length ? `
+    <div class="olines">${lines.map(p => `<div class="oline"><span>${cart[p.id]} × ${esc(p.n)}</span><span>${p.price != null ? money(p.price * cart[p.id]) : "—"}</span></div>`).join("")}</div>
+    <div class="ototal"><span>${t.total}</span><b>${money(total)}</b></div>
+    ${unpriced ? `<div class="note">${ic("info")}<span>${t.noPrice}</span></div>` : ""}
+    <div class="ofields"><div><label for="fRoom">${t.room}</label><select id="fRoom"><option value="">${t.pick}</option>${ROOMS.map(r => `<option${r === order.room ? " selected" : ""}>${r}</option>`).join("")}</select></div>
+      <div><label for="fName">${t.name}</label><input id="fName" type="text" autocomplete="given-name" maxlength="40" value="${esc(order.name)}"></div></div>
+    <div class="note warn" id="fNeed" hidden>${ic("warn")}<span>${t.need}</span></div>
+    <button class="btn wa" type="button" id="fSend">${ic("wa")}${t.send}</button>`
+    : `<p class="p" style="color:rgba(255,255,255,.6)">${t.empty}</p>`;
+  return head(t.h, t.sub) + `
+    <div class="card"><p class="lbl">${t.how}</p><ol class="steps">${t.steps.map(x => `<li>${x}</li>`).join("")}</ol></div>
+    ${groups.map(g => `<p class="fcat">${esc(catName(g.cat))}</p><div class="fgrid">${g.items.map(card).join("")}</div>`).join("")}
+    <div class="card dark" id="fOrder" style="margin-top:18px"><p class="lbl">${t.order}</p>${orderCard}</div>
+    <div class="note" id="fSent" hidden>${ic("palm")}<span>${t.sent}</span></div>`;
+}
+
+function renderCartBar() {
+  const t = T[lang].fridge;
+  const lines = fridge.filter(p => cart[p.id]);
+  const n = lines.reduce((s, p) => s + cart[p.id], 0), total = lines.reduce((s, p) => s + (p.price || 0) * cart[p.id], 0);
+  let bar = document.getElementById("cartbar");
+  if (!n || current !== "fridge") { if (bar) bar.remove(); document.body.classList.remove("has-cart"); return; }
+  if (!bar) { bar = document.createElement("button"); bar.id = "cartbar"; bar.className = "cartbar"; bar.type = "button"; document.body.appendChild(bar); }
+  bar.innerHTML = `<span>${n} ${t.items} · ${money(total)}<small>${t.order}</small></span><span class="go">${t.view}${ic("arrow")}</span>`;
+  document.body.classList.add("has-cart");
+}
+
+function renderFridge() {
+  const sec = document.getElementById("s-fridge");
+  if (sec) sec.innerHTML = fridgeHTML();
+  renderCartBar();
+}
+
+function sendOrder() {
+  const lines = fridge.filter(p => cart[p.id]);
+  if (!lines.length) return;
+  if (!order.room) { document.getElementById("fNeed").hidden = false; document.getElementById("fRoom").focus(); return; }
+  const total = lines.reduce((s, p) => s + (p.price || 0) * cart[p.id], 0);
+  const msg = [`Nevera · Habitación ${order.room}${order.name ? " · " + order.name.trim() : ""}`, ""]
+    .concat(lines.map(p => `${cart[p.id]} × ${p.n} ${p.size}${p.price != null ? " · " + money(p.price * cart[p.id]) : ""}`))
+    .concat(["", `Total: ${money(total)}${lines.some(p => p.price == null) ? " + productos sin precio" : ""}`]).join("\n");
+  window.open(wa(WA, msg), "_blank", "noopener");
+  cart = {};
+  renderFridge();
+  const s = document.getElementById("fSent"); if (s) { s.hidden = false; s.scrollIntoView({ behavior: "smooth", block: "center" }); }
 }
 
 function show(k, scroll) {
@@ -680,6 +870,8 @@ function show(k, scroll) {
   document.querySelectorAll(".tile").forEach(el => el.classList.toggle("on", el.dataset.s === k));
   document.querySelectorAll(".sec").forEach(el => el.classList.toggle("on", el.id === "s-" + k));
   try { history.replaceState(null, "", "#" + k); } catch (e) {}
+  renderCartBar();
+  if (k === "fridge") loadFridge();
   if (scroll) document.getElementById("main").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -694,10 +886,18 @@ document.addEventListener("click", e => {
   if (l) { lang = l.dataset.l; try { localStorage.setItem("cb-lang", lang); } catch (_) {} render(); return; }
   const s = e.target.closest("[data-s]");
   if (s) { show(s.dataset.s, true); return; }
+  const inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+  if (inc || dec) { const id = (inc || dec).dataset[inc ? "inc" : "dec"]; cart[id] = Math.max(0, (cart[id] || 0) + (inc ? 1 : -1)); if (!cart[id]) delete cart[id]; renderFridge(); return; }
+  if (e.target.closest("#fSend")) { sendOrder(); return; }
+  if (e.target.closest("#cartbar")) { document.getElementById("fOrder").scrollIntoView({ behavior: "smooth", block: "start" }); return; }
   const c = e.target.closest("[data-copy]");
   if (c) { copy(c.dataset.copy, c); return; }
   if (e.target.closest("#wifiChip")) { const b = document.querySelector("#wifiChip span"); copy(WIFI.pass); b.textContent = T[lang].wifi.ok; setTimeout(() => { b.textContent = T[lang].strip.wifi; }, 1600); }
 });
+
+const saveOrder = () => { try { localStorage.setItem("cb-order", JSON.stringify(order)); } catch (_) {} };
+document.addEventListener("change", e => { if (e.target.id === "fRoom") { order.room = e.target.value; saveOrder(); const n = document.getElementById("fNeed"); if (n && order.room) n.hidden = true; } });
+document.addEventListener("input", e => { if (e.target.id === "fName") { order.name = e.target.value; saveOrder(); } });
 
 (function init() {
   let saved = null;
@@ -707,6 +907,7 @@ document.addEventListener("click", e => {
   const h = location.hash.slice(1);
   if (T.es.nav[h]) current = h;
   render();
+  loadFridge();
 })();
 </script>
 </body>

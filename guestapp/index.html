@@ -343,22 +343,22 @@ const NAV = [
 ];
 /* Nevera: los precios y cantidades se leen del Google Sheets.
    Si no se puede leer (sin conexión o sin compartir), se usa esta lista. */
-const SHEET = "1u47QeuM94LOzkZ50MfdmpWI8mMliBzZ8gX0vjrflw7Y";
+const SHEET = "1CBlbgbLLIA2IPIZArgfD-qbFzkTQLXWmLzwrrXT_u2o";
 const ROOMS = ["1","2","3","4","5","6"];
 const FRIDGE_DEFAULT = [
-  ["coca-cola","Refrescos","Coca-Cola","450 ml",12],["coca-cola-zero","Refrescos","Coca-Cola Zero","355 ml",10],
-  ["canada-dry-ginger-ale","Refrescos","Canada Dry Ginger Ale","350 ml · lata",12],["canada-dry-tonica","Refrescos","Canada Dry Agua Tónica","350 ml · lata",12],
-  ["lipton","Té","Lipton Ice Tea","500 ml",12],["lipton-limon","Té","Lipton Ice Tea Limón","500 ml",12],
-  ["gatorade-limon","Isotónicos","Gatorade Limón","600 ml",15],["gatorade-uva","Isotónicos","Gatorade Uva","600 ml",15],
-  ["gatorade-fruit-punch","Isotónicos","Gatorade Fruit Punch","600 ml",15],["gatorade-naranja","Isotónicos","Gatorade Naranja","600 ml",15],
-  ["hidravida-lima-limon","Isotónicos","Hidravida Lima Limón","625 ml",12],["hidravida-fresa-kiwi","Isotónicos","Hidravida Fresa Kiwi","625 ml",12],
-  ["hidravida-maracuya","Isotónicos","Hidravida Maracuyá","625 ml",12],["hidravida-fresa","Isotónicos","Hidravida Fresa","625 ml",12],
-  ["v8-orange-carrot","Jugos","V8 Splash Orange Carrot","473 ml",15],["v8-berry-blend","Jugos","V8 Splash Berry Blend","473 ml",15],
-  ["v8-strawberry-kiwi","Jugos","V8 Splash Strawberry Kiwi","473 ml",15],
-  ["salutaris","Agua","Salutaris Agua Mineral","600 ml",10],["salvavidas","Agua","Agua Pura Salvavidas","600 ml",8],["shangri-la","Agua","Shangri-La Agua Mineral","354 ml · lata",10],
+  ["coca-cola","Refrescos","Coca-Cola","450 ml",15],["coca-cola-zero","Refrescos","Coca-Cola Zero","355 ml",15],
+  ["canada-dry-ginger-ale","Refrescos","Canada Dry Ginger Ale","350 ml · lata",15],["canada-dry-tonica","Refrescos","Canada Dry Agua Tónica","350 ml · lata",15],
+  ["lipton","Té","Lipton Durazno","500 ml",20],["lipton-limon","Té","Lipton Limón","500 ml",20],
+  ["gatorade-limon","Isotónicos","Gatorade Limón","600 ml",25],["gatorade-uva","Isotónicos","Gatorade Uva","600 ml",25],
+  ["gatorade-fruit-punch","Isotónicos","Gatorade Fruit Punch","600 ml",25],["gatorade-naranja","Isotónicos","Gatorade Naranja","600 ml",25],
+  ["hidravida-lima-limon","Isotónicos","Hidravida Lima Limón","625 ml",30],["hidravida-fresa-kiwi","Isotónicos","Hidravida Fresa Kiwi","625 ml",30],
+  ["hidravida-maracuya","Isotónicos","Hidravida Maracuyá","625 ml",30],["hidravida-fresa","Isotónicos","Hidravida Fresa","625 ml",30],
+  ["v8-orange-carrot","Jugos","V8 Splash Orange Carrot","473 ml",25],["v8-berry-blend","Jugos","V8 Splash Berry Blend","473 ml",25],
+  ["v8-strawberry-kiwi","Jugos","V8 Splash Strawberry Kiwi","473 ml",25],
+  ["salutaris","Agua","Salutaris Agua Mineral","600 ml",15],["salvavidas","Agua","Agua Pura Salvavidas","600 ml",15],["shangri-la","Agua","Shangri-La Agua Mineral","354 ml · lata",15],
   ["coco","Coco","Coco natural","1 unidad",15],["sauvignon-blanc","Vino","Sauvignon Blanc","187.5 ml",45],
-  ["heineken-00","Cerveza","Heineken 0.0 (sin alcohol)","330 ml",20],["corona","Cerveza","Corona","355 ml",25],
-  ["gallo","Cerveza","Gallo","350 ml",18],["dorada-draft","Cerveza","Dorada Draft","350 ml",18]
+  ["heineken-00","Cerveza","Heineken 0.0 (sin alcohol)","330 ml",30],["corona","Cerveza","Corona","355 ml",30],
+  ["gallo","Cerveza","Gallo","350 ml",25],["dorada-draft","Cerveza","Dorada Draft","350 ml",25]
 ].map(([id, cat, n, size, price]) => ({ id, cat, n, size, price: price ?? null, qty: null }));
 const CAT_KEYS = { refrescos:"soda", refresco:"soda", te:"tea", "te frio":"tea", isotonicos:"sport", isotonico:"sport", jugos:"juice", jugo:"juice", agua:"water", aguas:"water", coco:"coco", cocos:"coco", vino:"wine", vinos:"wine", cerveza:"beer", cervezas:"beer" };
 let fridge = FRIDGE_DEFAULT, cart = {}, order = { room: "", name: "" };

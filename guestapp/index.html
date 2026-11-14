@@ -360,7 +360,7 @@ const FRIDGE_DEFAULT = [
   ["coco","Coco","Coco natural","1 unidad",15],["sauvignon-blanc","Vino","Sauvignon Blanc","187.5 ml",45],
   ["heineken-00","Cerveza","Heineken 0.0 (sin alcohol)","330 ml",30],["corona","Cerveza","Corona","355 ml",30],
   ["gallo","Cerveza","Gallo","350 ml",25],["dorada-draft","Cerveza","Dorada Draft","350 ml",25],
-  ["acetaminofen","Botiquín","Acetaminofén Therfam 500 mg","2 tabletas",5],["panadol-extra-fuerte","Botiquín","Panadol Extra Fuerte 500 mg","2 tabletas",10],
+  ["acetaminofen","Botiquín","Acetaminofén Therfam 500 mg","1 tableta",3],["panadol-extra-fuerte","Botiquín","Panadol Extra Fuerte 500 mg","1 tableta",5],
   ["sal-andrews","Botiquín","Sal Andrews","1 sobre · 5 g",5],["pepto-bismol","Botiquín","Pepto-Bismol","115 ml",75]
 ].map(([id, cat, n, size, price]) => ({ id, cat, n, size, price: price ?? null, qty: null }));
 const CAT_KEYS = { botiquin:"pharm", farmacia:"pharm", medicamentos:"pharm", refrescos:"soda", refresco:"soda", te:"tea", "te frio":"tea", isotonicos:"sport", isotonico:"sport", jugos:"juice", jugo:"juice", agua:"water", aguas:"water", coco:"coco", cocos:"coco", vino:"wine", vinos:"wine", cerveza:"beer", cervezas:"beer" };
